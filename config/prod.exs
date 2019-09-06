@@ -16,10 +16,14 @@ use Mix.Config
 
 # GIGALIXIR
 config :ficdb, FicdbWeb.Endpoint,
+   load_from_system_env: true,
+   server: true, # Without this line, your app will not start the web server!
    url: [host: System.get_env("RENDER_EXTERNAL_HOSTNAME") || "localhost", port: 80],
-   cache_static_manifest: "priv/static/cache_manifest.json"
+   cache_static_manifest: "priv/static/cache_manifest.json",
+   server: true
 
 config :ficdb, Ficdb.Repo,
+   show_sensitive_data_on_connection_error: true,
    adapter: Ecto.Adapters.Postgres,
    username: System.get_env("DB_USERNAME"),
    password: System.get_env("DB_PASSWORD"),

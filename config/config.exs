@@ -12,7 +12,6 @@ config :ficdb,
 # Configures the endpoint
 config :ficdb,
        FicdbWeb.Endpoint,
-       url: [host: System.get_env("RENDER_EXTERNAL_HOSTNAME") || "localhost", port: 80],
 
        secret_key_base: "eVARjfTJRCn+y4G9MSob6/5+r+UOcSEHX0qj7LauSJU9VOuo650Xd0ImbtZn1bpA",
        render_errors: [
