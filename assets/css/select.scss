@@ -1,0 +1,66 @@
+.Waiting {
+  button {
+    color: orange !important;
+    border-color: orange !important;
+  }
+
+  .description, .head, &{
+    border-color: rgba(255, 165, 0, 0.52) !important;
+  }
+
+  &:hover, &:hover .description, &:hover .head {
+    border-color: rgba(255, 165, 0, 1) !important;
+  }
+}
+
+.Dropped {
+  button {
+    color: red !important;
+    border-color: red !important;
+  }
+  .description, .head, &{
+    border-color: rgba(255, 0, 0, 0.49) !important;
+  }
+  &:hover, &:hover .description, &:hover .head {
+    border-color: rgba(255, 0, 0, 1) !important;
+  }
+}
+
+.Reading {
+  button {
+    color: deepskyblue !important;
+    border-color: deepskyblue !important;
+  }
+  .description, .head, &{
+    border-color: rgba(0, 191, 255, 0.52) !important;
+  }
+  &:hover, &:hover .description, &:hover .head {
+    border-color: rgba(0, 191, 255, 1) !important;
+  }
+}
+
+.Read {
+  button {
+    color: mediumpurple !important;
+    border-color: mediumpurple !important;
+  }
+  .description, .head, &{
+    border-color: rgba(147, 112, 219, 0.5) !important;
+  }
+  &:hover, &:hover .description, &:hover .head {
+    border-color: mediumpurple !important;
+  }
+}
+
+.Want {
+  button {
+    color: lawngreen !important;
+    border-color: lawngreen !important;
+  }
+  .description, .head, &{
+    border-color: rgba(124, 252, 0, 0.52) !important;
+  }
+  &:hover, &:hover .description, &:hover .head {
+    border-color: rgba(124, 252, 0, 1) !important;
+  }
+}

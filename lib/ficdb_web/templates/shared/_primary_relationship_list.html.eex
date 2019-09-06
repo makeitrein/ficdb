@@ -1,0 +1,15 @@
+<%= if length(@primary_relationship) > 0 do %>
+<span class="mr-1 text-red-light hover:text-red">
+  <%= link to: fanfic_path(@conn, :index, Ficdb.EnumHelpers.set_nested_param(@conn.params, ["search", "primary_relationship"], @primary_relationship |> Ficdb.SchemaHelpers.pluck(:id) )), "up-dash": "main", class: "" do %>
+  <i class="jam jam-heart text-xl inline-block align-middle relative inset-b-1 mt-1 inset-l-3px"></i>
+  <%= for {character, idx} <- Enum.with_index @primary_relationship do %>
+  <%= character.name %>
+  <%= if idx + 1 < length @primary_relationship do %>
+  ×
+  <% end %>
+  <% end %>
+  <% end %>
+</span>
+  <% end %>
+
+

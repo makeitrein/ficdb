@@ -1,0 +1,48 @@
+<%= if @is_my_account, do: render FicdbWeb.SharedView, "_top_right_action_no_unpoly.html", text: "Sign out", path: session_path(@conn, :delete, @session_unique_id), dash: false %>
+
+<div class="md:flex mt-4" up-keep id="account">
+            <div class="">
+                <div class="uk-tab uk-tab-left">
+                        <div class="uk-active">
+
+                        <a href="<%= "/veil/users/account/#{@user_id}" %>"  up-dash="#up-results">
+                                                    <i class="jam jam-user text-lg inline-block align-middle pb-px mb-px"></i>
+ Account
+                        </a>
+                        </div>
+
+                        <div class="">
+                        <a href="<%= "/veil/reviews?modal=true&search[submitter_id]=#{@user_id}" %>"  up-dash="#up-results">
+                                                    <i class="jam jam-messages text-lg inline-block align-middle pb-px mb-px"></i>
+ Reviews
+                        </a>
+
+                        <a href="<%= "/veil/users/fanfics?submitter_id=#{@user_id}" %>"  up-dash="#up-results">
+                                                                            <i class="jam jam-messages text-lg inline-block align-middle pb-px mb-px"></i>
+                         Submissions
+                                                </a>
+                        </div>
+
+                        <%= for bookshelf <- @user_bookshelves do %>
+                                <div>
+                            <a href="<%= "/veil?modal=true&search[bookshelf]=#{bookshelf.id}" %>"  up-dash="#up-results">
+                                                        <i class="jam jam-bookmark text-lg inline-block align-middle pb-px mb-px"></i>
+ <%= Phoenix.Naming.humanize bookshelf.name %>
+                            </a>
+                            </div>
+                        <% end %>
+                </div>
+            </div>
+            <div class="flex-1 pl-4">
+                 <div id="up-results">
+                        <%= if @is_my_account, do: render "form.html", conn: @conn, changeset: @changeset, update: true, action: user_path(@conn, :update) %>
+                        <%= if !@is_my_account, do: render "mini_account.html", conn: @conn, user: @user %>
+                    </div>
+
+            </div>
+</div>
+
+
+
+
+

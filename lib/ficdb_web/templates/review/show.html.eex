@@ -1,0 +1,11 @@
+<div class="blocks uk-margin-large-top" id="<%= "fanfic-#{@review.fanfic_id}" %>">
+<article>
+                 <%= link to: fanfic_path(@conn, :show, @review.fanfic_id), "up-dash": "#up-results",  class: "colorgradient-card uk-active" do %>
+
+                                 <div class="card-title">Review Submitted! <img src="<%= static_path(@conn, "/images/icon-goright-light.svg") %>"/></div>
+                                 <div class="card-subtitle">Click here to view...</div>
+
+                               <% end %>
+
+                             </article>
+</div>

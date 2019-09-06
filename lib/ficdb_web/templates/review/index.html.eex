@@ -1,0 +1,53 @@
+            <div class="">
+    <%= form_for @conn, review_path(@conn, :index),
+  [as: :search, method: :get, "up-dash": "#up-results", "up-autosubmit": true, id: "filter"], fn f -> %>
+
+            <div class="filter flex flex-wrap">
+
+<div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 pr-3 py-3 ">
+                    <span class="mb-2"><i class="jam jam-search text-xl inline-block align-middle inset-b-2px relative"></i></span>
+                    Author Name
+                    <div class="mt-2">
+                        <%= text_input f, :title, class: "w-full", placeholder: "" %>
+                    </div>
+                </div>
+
+                <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 px-3 py-3 ">
+                    <span class="mb-2"><i class="jam jam-bug text-xl inline-block align-middle inset-b-2px relative"></i></span>
+                    Fandoms
+                    <div class="mt-2">
+                        <%= multiple_select f, :fandoms, @fandom_dropdown_filter, placeholder: "+ Add a Fandom", class: "include" %>
+                    </div>
+                </div>
+
+                <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 px-3 py-3 ">
+                    <span class="mb-2"><i class="jam jam-sword text-xl inline-block align-middle inset-b-2px relative"></i></span>
+                    Genres
+                    <div class="mt-2">
+                        <%= multiple_select f, :genres, @genre_dropdown_filter, placeholder: "+ Add a Genre", class: "include" %>
+                    </div>
+                </div>
+
+                
+                </div>
+
+
+
+
+    <%end %>
+</div>
+
+
+            <%= render FicdbWeb.SharedView, "_links_and_user_stats.html", assigns %>
+<br/>
+
+
+
+<div id="up-results">
+         <%= render FicdbWeb.SharedView, "_pagination.html", assigns %>
+<br/>
+<%= render FicdbWeb.SharedView, "_review_list.html", conn: @conn, reviews: @reviews %>
+     <%= render FicdbWeb.SharedView, "_pagination.html", assigns %>
+
+</div>
+

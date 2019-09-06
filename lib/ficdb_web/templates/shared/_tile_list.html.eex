@@ -1,0 +1,28 @@
+<div class="uk-child-width-1-6@m uk-child-width-1-4@s uk-child-width-1-2 uk-flex-wrap-stretch uk-grid uk-grid-small" uk-grid>
+    <%= for item <- @list do %>
+    <div data-tippy-content="<%= item.description %>" class="uk-position-relative">
+    <%= link to: fanfic_path(@conn, :index, Ficdb.EnumHelpers.push_nested_param(@conn.params, @filter, item.id)), "up-dash": "main", class: "uk-width-1-1 uk-display-block uk-inline uk-masonry-item uk-light gradient uk-border-rounded uk-overflow-hidden" do %>
+
+
+
+        <img
+            class="uk-width-1-1 uk-border-rounded uk-animation-custom-kenburns uk-tile-image"
+            src="<%= Ficdb.Image.url({item.image, item}, :thumb) %>"
+            alt=""/>
+
+        <div class="uk-position-center uk-text-center uk-text-white uk-break-word">
+            <div class="uk-text-uppercase uk-text-white uk-text-small uk-margin-negative-bottom"><%= item.name %></div>
+            <small class="elastic-line uk-position-relative uk-display-inline-block uk-text-xs">
+            <%= Ficdb.SchemaHelpers.fanfic_count_english(item.fanfic_count) %></small>
+        </div>
+        <% end %>
+
+            <%= Ficdb.Authorization.render(Ficdb.Authorization.verify_role(@conn, [:admin, :mod]), link("Edit", to: @item_path.(@conn, :edit, item), "up-dash": "main", class: "uk-text-xs"))  %>
+            <%= Ficdb.Authorization.render(Ficdb.Authorization.verify_role(@conn, [:admin]), link("Delete", to: @item_path.(@conn, :delete, item), method: :delete, class: "uk-text-xs uk-margin-left"))  %>
+
+        </div>
+    <% end %>
+
+
+</div>
+

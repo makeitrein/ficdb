@@ -1,0 +1,6 @@
+<div id="up-results">
+
+<%= render FicdbWeb.SharedView, "_benchmark.html", list: @reviews, benchmark: assigns[:benchmark] %>
+
+<%= render FicdbWeb.SharedView, "_review_list.html", conn: @conn, reviews: @reviews %>
+</div>

@@ -1,0 +1,13 @@
+<div class="uk-avatars">
+<%= for review <- @reviews do %>
+
+    <%#= link to: user_path(@conn, :show, review.submitter.username), class: "uk-avatar-item uk-label uk-label-primary" do %>
+
+        <span class="uk-cover-container uk-avatar-item" uk-tooltip="title: <%= review.rating %>/5 <%= review.headline %>">
+            <img uk-cover src="<%= Ficdb.Image.url({review.submitter.image, review.submitter}, :thumb) %>"/>
+        </span>
+
+
+<% end %>
+</div>
+

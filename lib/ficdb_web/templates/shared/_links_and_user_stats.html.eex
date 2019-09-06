@@ -1,0 +1,16 @@
+            <div class="text-right flex-1 antialiased text-xs tracking-wide">
+        <%= if assigns[:f] do %>
+
+        <i class="jam jam-alert text-xl inline-block align-middle inset-b-2px relative arrow"></i>
+
+        <%= select @f, :approval_status, @approval_status_options, class: "" %>
+
+        &middot;
+<% end %>
+<a up-dash="main" href="/faq" class="text-red-light"><i class="jam jam-pizza-slice text-xl inline-block align-middle inset-b-2px relative arrow"></i>FAQ & Tech</a> &middot;
+<a up-dash="main" href="/suggestions" class="text-green-light"><i class="jam jam-cactus text-xl inline-block align-middle inset-b-2px relative arrow"></i>Suggestions</a> &middot;
+<a href="https://discord.gg/uRrEHfV" class="text-purple-light"><i class="jam jam-activity text-xl inline-block align-middle inset-b-2px relative arrow"></i>Discord Channel</a>
+<%= if @current_user_reviews do %>
+<br/> Your reviews have received <span class="text-red-light "><%= @current_user_reviews.vote_count %> <i class="jam jam-heart text-xl inline-block align-middle inset-b-2px relative arrow"></i> hearts!</span> Nicely done!
+<% end %>
+</div>

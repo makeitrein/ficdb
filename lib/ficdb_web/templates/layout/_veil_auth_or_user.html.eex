@@ -1,0 +1,19 @@
+    <div class="flex-1">
+        <%= if assigns[:veil_user_id] do %>
+           <%= active_link(@conn, to: user_path(@conn, :show), class: "no-underline inline-flex items-center", "up-dash": "main", "up-alias": "/veil*") do %>
+                       <span class="diamond md:visible invisible">
+                           <span class="border"></span>
+                           <span class="back"></span>
+                         </span>
+                           <span class="elastic-line ml-3">ACCOUNT</span>
+                       <% end %>
+          <% else %>
+            <%= active_link(@conn, to: user_path(@conn, :new), class: "no-underline inline-flex items-center", "up-dash": "main") do %>
+            <span class="diamond md:visible invisible">
+                <span class="border"></span>
+                <span class="back"></span>
+              </span>
+                <span class="elastic-line ml-3">LOGIN / SIGNUP</span>
+            <% end %>
+          <% end %>
+    </div>

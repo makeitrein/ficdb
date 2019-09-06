@@ -1,0 +1,63 @@
+<%= if (@items_length > 0) do %>
+<% page_count = (@items_length/@filter_values.paginate.per_page) |> Float.ceil() |> Kernel.trunc() %>
+<% current_page = @filter_values.paginate.page %>
+<% pages = 1..page_count %>
+
+
+<% show_prev = current_page > 1 && page_count > 1 %>
+<% show_next = current_page < page_count %>
+
+<% start_page_button = pages |> Enum.at(0) %>
+<% end_page_button = pages |> Enum.at(-1) %>
+
+<% first_page = pages |> Enum.at(0) %>
+<% last_page = pages |> Enum.at(-1) %>
+
+
+<% prev_page = if !show_prev, do: nil, else: current_page - 1 %>
+<% next_page = if !show_next, do: nil, else: current_page + 1 %>
+
+<% current_page_buttons = [prev_page, current_page, next_page] %>
+
+<% start_page_button = if first_page in current_page_buttons, do: nil, else: first_page %>
+<% end_page_button = if last_page in current_page_buttons, do: nil, else: last_page %>
+<% first_separator = if start_page_button in current_page_buttons, do: nil, else: "..." %>
+<% second_separator = if end_page_button in current_page_buttons, do: nil, else: "..." %>
+
+<% buttons = [start_page_button, first_separator, prev_page, current_page, next_page, second_separator, end_page_button] |> Enum.reject(&(is_nil)/1) %>
+
+
+<div class="flex flex-wrap justify-between list-reset w-auto font-sans text-sm">
+<div class="flex items-center">
+
+<%= if show_prev do %>
+<div class="mr-1"><a data-qs="page" data-qs-value="<%= current_page - 1 %>" class="block px-2 py-2 border border-blue rounded-lg hover:text-white hover:bg-blue text-blue border-blue %>"
+  >Prev</a></div>
+<% end %>
+
+
+  <%= for count <- buttons do %>
+  <%= if count == "..." do %>
+    <span class="px-4">. . .</span>
+  <% else %>
+  <div class="mr-1"><a data-qs="page" data-qs-value="<%= count %>" class="block px-2 py-2 rounded-lg <%= if current_page === count, do: "bg-blue border-blue text-white", else: "hover:text-white hover:bg-blue text-blue border-blue border" %>"
+    ><%= count %></a></div>
+  <% end %>
+
+  <% end %>
+
+<%= if show_next do %>
+<div class="mr-1"><a data-qs="page" data-qs-value="<%= current_page + 1 %>" class="block px-2 py-2 hover:text-white border hover:bg-blue text-blue border-blue rounded-lg %>"
+  >Next</a></div>
+<% end %>
+  
+ 
+</div>
+
+<div class="flex border border-blue rounded-lg mt-2 md:mt-0 overflow-hidden">
+   <%= for {name, id} <- @sort_by_options do %>
+    <a data-qs="search[sort]" data-qs-value="<%= id %>" class="block flex items-center px-2 py-2 <%= if @filter_values[:sort] && @filter_values[:sort] === id, do: "bg-blue border-blue text-white", else: "hover:text-white hover:bg-blue text-blue border-blue" %>"><%= name %></a>
+    <% end %>
+</div>
+</div>
+<% end %>

@@ -1,0 +1,9 @@
+<%= render FicdbWeb.SharedView, "_top_right_action.html", text: "Edit", path: suggestion_path(@conn, :edit, @suggestion.id) %>
+
+<div class="uk-description-list uk-description-list-divider">
+
+    <dt>Content:</dt>
+    <dd><%= @suggestion.content %></dd>
+
+</div>
+

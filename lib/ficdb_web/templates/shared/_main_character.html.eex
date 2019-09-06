@@ -1,0 +1,5 @@
+<%= if @item.main_character do %>
+<%= link to: fanfic_path(@conn, :index, Ficdb.EnumHelpers.set_nested_param(@conn.params, ["search", "main_character_id"], [@item.main_character_id])), class: "text-blue-light hover:text-blue whitespace-no-wrap" do %>
+<i class="jam jam-user-square text-xl inline-block align-middle inset-b-1 mt-px pt-px mr-px pr-px relative"></i><span class=""><%= @item.main_character.name %></span>
+<% end %>
+<% end %>

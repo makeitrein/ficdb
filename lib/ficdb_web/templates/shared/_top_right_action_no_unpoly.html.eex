@@ -1,0 +1,5 @@
+<span class="uk-position-top-right uk-padding">
+    <%= link to: @path, class: "button" do %>
+    <%= @text %>
+    <% end %>
+</span>

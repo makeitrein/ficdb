@@ -1,0 +1,40 @@
+<article class="pt-3 mb-8 border-albino no-underline group" id="<%= " suggestion-#{@suggestion.id}" %>">
+    <header class="flex items-center">
+        <div class="">
+            <%= render FicdbWeb.SharedView, "_avatar.html", image: @suggestion.submitter.image, model: @suggestion.submitter, class: "uk-border-rounded" %>
+        </div>
+        <div class="flex-1 pl-6">
+            <div class="uppercase text-sm text-whitest mt-1">
+                <span>
+                    <%= link @suggestion.submitter.username , to: account_path(@conn, :show, @suggestion.submitter.id), class: "", "up-dash": "main" %></span>
+                <span class="px-2">|</span>
+                <span>
+                    <%= relative(@suggestion.inserted_at) %>
+                    <%= if @suggestion.updater_id do %><span class="">*</span>
+                    <% end %></span>
+
+
+                <%= if Ecto.assoc_loaded?(@suggestion.fanfic) && @suggestion.fanfic do %>
+                <span class="px-2">|</span>
+
+                    <%= link @suggestion.fanfic.name, to: fanfic_path(@conn, :show, @suggestion.fanfic.id), class: "text-white", "up-dash": "#up-results" %>
+                <% end %>
+            </div>
+
+            <%= if @suggestion.content do %>
+                            <div class="text-grey overflow-hidden" data-read-more="true">
+                                <p class="whitespace-pre-wrap mt-1"><%= @suggestion.content %></p>
+                            </div>
+                    <% end %>
+        </div>
+
+                        <%= render "_tag_list.html", conn: @conn, list: @suggestion.genres, param: "genres" %>
+
+
+    </header>
+
+
+
+
+
+</article>

@@ -1,0 +1,50 @@
+<%= form_for @changeset, @action, [multipart: true], fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+<%= if assigns[:signup] || assigns[:login] do %>
+
+  <div class="my-4">
+    <%= label f, :email, class: "block" %>
+    <%= text_input f, :email, class: "uk-input", required: true %>
+    <%= error_tag f, :email %>
+  </div>
+<% end %>
+
+<%= if assigns[:signup] do %>
+  <div class="my-4">
+  <%= label f, :username, class: "block" %>
+  <%= text_input f, :username, class: "uk-input", required: true %>
+  <%= error_tag f, :username %>
+  </div>
+<% end %>
+
+<%= if assigns[:update] do %>
+
+  <div class="uk-margin-bottom">
+  <%= text_input f, :username, class: "uk-input", disabled: true %>
+  </div>
+
+
+  <div class="uk-grid-small" uk-grid>
+  <div class="uk-width-auto">
+      <%= render FicdbWeb.SharedView, "_avatar.html", image: @changeset.data.image, model: @changeset %>
+</div>
+  <div class="uk-width-expand">
+      <%= label f, "Avatar", class: "block" %>
+      <div><%= file_input f, :image %></div>
+      <%= error_tag f, :image %>
+      </div>
+    </div>
+
+<% end %>
+
+
+
+  <div class="mt-4">
+    <%= submit assigns[:submit_text] || "Submit", class: "button" %>
+  </div>
+<% end %>

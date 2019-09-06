@@ -1,0 +1,31 @@
+
+<div class="">
+
+        <div class="mb-2">
+            <%= multiple_select @f, :word_count, @word_count_options, placeholder: "Word Count" %>
+            <%= error_tag @f, :word_count %>
+        </div>
+
+        <div class="mb-2">
+            <%= multiple_select @f, :maturity, @maturity_options, placeholder: "Maturity" %>
+            <%= error_tag @f, :maturity %>
+        </div>
+
+        <div class="mb-2">
+            <%= multiple_select @f, :status, @status_options, placeholder: "Status" %>
+            <%= error_tag @f, :status %>
+        </div>
+        <div class="mb-2">
+        <div class="selectize-input">
+                            <%= text_input @f, :title, class: "", placeholder: "Search Titles..." %>
+                            <%= error_tag @f, :title %>
+        </div>
+        </div>
+    </div>
+
+ <div class="" style="margin-top: 3px" id="selectize-parent" uk-grid="">
+    </div>
+
+
+
+

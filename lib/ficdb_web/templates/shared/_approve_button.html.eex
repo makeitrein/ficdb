@@ -1,0 +1,11 @@
+
+
+<%= if assigns[:approval_status_options] do %>
+ <%= form_for @conn, fanfic_path(@conn, :approve, @item.id), [method: :post, "up-autosubmit": true, "up-history": 'false', class: "border-l border-albino py-1 px-5 inline-block"], fn f -> %>
+
+     <%= select f, :approval_status, @approval_status_options, value: current_approval_status(@item), class: "" %>
+
+ <% end %>
+ <% end %>
+
+

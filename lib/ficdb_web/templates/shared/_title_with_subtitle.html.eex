@@ -1,0 +1,4 @@
+<div class="uk-margin-bottom">
+<h2 class="uk-margin-remove"><%= @title %></h2>
+<div class="uk-text-muted"><%= @subtitle %></div>
+</div>

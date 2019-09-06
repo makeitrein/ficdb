@@ -1,0 +1,71 @@
+<%= form_for @changeset, @action, [multipart: true], fn f -> %>
+
+
+<%= render FicdbWeb.SharedView, "_form_error_banner.html", changeset: @changeset %>
+
+
+<div class="flex">
+<div class="flex-1">
+
+  <div class="uk-margin">
+    <%= label f, :name, class: "block" %>
+    <%= text_input f, :name, class: "w-2/3" %>
+    <%= error_tag f, :name %>
+  </div>
+
+
+    <div class="uk-margin">
+      <%= label f, :fandom_type, class: "block" %>
+      <%= select f, :fandom_type, Ficdb.EnumHelpers.enum_keys(Ficdb.FandomEnum), class: "" %>
+      <%= error_tag f, :fandom_type %>
+    </div>
+
+  <div class="uk-margin">
+    <%= label f, :description, class: "block" %>
+    <%= text_input f, :description, class: "w-2/3" %>
+    <%= error_tag f, :description %>
+  </div>
+
+  <%= render FicdbWeb.SharedView, "_avatar.html", image: @changeset.data.image, model: @changeset %>
+
+
+  <div class="uk-margin">
+    <%= label f, :image, class: "block" %>
+    <div><%= file_input f, :image %></div>
+    <%= error_tag f, :image %>
+  </div>
+
+<div class="mt-4">
+    <%= submit "Submit", class: "button" %>
+  </div>
+
+
+</div>
+<div class="flex-1">
+
+
+<div class="uk-margin">
+    <%= label f, "Crawl Fanfiction.net", class: "block" %>
+    <%= text_input f, nil, class: "w-2/3", value: "https://m.fanfiction.net/*GENRE*/*FANDOM*" %>
+    <a data-crawl-fandom="true" class="label-text block mt-4 button">Scrape</a>
+  </div>
+<%= label f, :characters, class: "block" %>
+
+<div class="flex">
+  <div class="w-1/3">
+
+  <%= textarea f, :characters_bulk, rows: "40" %>
+</div>
+  <div class="w-2/3">
+    <%= inputs_for f, :characters, fn p -> %>
+    <div>
+    <div>
+       <div class="mb-1">
+          <%= text_input p, :name, class: "w-2/3" %>
+          <%= error_tag p, :name %>
+          </div>
+          </div>
+          </div>
+      <% end %>
+      </div>
+<% end %>

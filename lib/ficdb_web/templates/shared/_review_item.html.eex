@@ -1,0 +1,58 @@
+<article class="pb-8 pt-6 px-6 border-albino border-b mb-2 last-child-borderless no-underline group" id="<%= " review-#{@review.id}" %>">
+    <header class="flex items-center">
+        <div class="">
+            <%= render FicdbWeb.SharedView, "_avatar.html", image: @review.submitter.image, model: @review.submitter, class: "uk-border-rounded-lg" %>
+        </div>
+        <div class="flex-1 pl-4">
+            <span class="jquery-stars inline-block align-middle h-5" data-stars="<%= @review.rating %>"></span>
+            <span class="text-lg"><%= @review.headline %></span>
+            <div class="uppercase text-sm text-whitest mt-1">
+                <span>
+                    <%= link @review.submitter.username , to: account_path(@conn, :show, @review.submitter.id), class: "", "up-dash": "main" %></span>
+                <span class="px-2">|</span>
+                <span>
+                    <%= relative(@review.inserted_at) %>
+                    <%= if @review.updater_id do %><span class="">*</span>
+                    <% end %></span>
+
+
+                <%= if Ecto.assoc_loaded?(@review.fanfic) do %>
+                <span class="px-2">|</span>
+
+                    <%= link @review.fanfic.name, to: fanfic_path(@conn, :show, @review.fanfic.id), class: "text-white", "up-dash": "#up-results" %>
+                <% end %>
+            </div>
+        </div>
+
+
+    </header>
+
+<%= if @review.content do %>
+    <div class="pl-16">
+        <div class="text-grey overflow-hidden" data-read-more="true">
+            <p class="whitespace-pre-wrap">
+                <%= @review.content %>
+            </p>
+        </div>
+        </div>
+<% end %>
+
+<%= if @review.headline do %>
+<div class="flex flex-wrap items-center pl-16 mt-4">
+
+<% is_reviewer = @conn.assigns[:veil_user_id] == @review.submitter_id %>
+
+    <a ujs-method="post" ujs-remote data-vote="true" href="<%= if is_reviewer || is_nil(@conn.assigns[:veil_user_id]), do: "false", else: "/reviews/vote/#{@review.id}" %>" class="flex rounded-lg flex items-center no-underline uppercase px-2 py-px text-sm font-bold
+        <%= if @conn.assigns[:veil_user_id] in (@review.votes |> Ficdb.SchemaHelpers.pluck(:submitter_id)), do: "bg-red-light", else: "bg-purple-light" %>">
+        <i class="jam jam-heart-f text-xl inline-block align-middle pb-px mb-px"></i>
+        <span class="pl-1" data-vote-count="true"><%= length(@review.votes) %></span>
+    </a>
+
+    <%= for voter <- @review.votes do %>
+               <span class="pl-2 text-red-light opacity-0 group-hover:opacity-100 transition-fast"><%= voter.submitter.username %></span>
+        <% end %>
+</div>
+<% end %>
+
+
+</article>

@@ -1,0 +1,1 @@
+<%= if assigns[:benchmark] do %><div class=""><div class="border mt-4 rounded-lg p-2 text-sm inline-block absolute z-50"><%= length @list %> results &middot; <%= max(0.0001, @benchmark/1000000) %> seconds</div></div><% end %>

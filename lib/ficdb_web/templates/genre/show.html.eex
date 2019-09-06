@@ -1,0 +1,17 @@
+<%= render FicdbWeb.SharedView, "_top_right_action.html", text: "Edit", path: genre_path(@conn, :edit, @genre.id) %>
+
+<div class="uk-description-list uk-description-list-divider">
+
+    <dt>Name:</dt>
+    <dd><%= @genre.name %></dd>
+
+    <dt>Description:</dt>
+    <dd><%= @genre.description %></dd>
+
+    <dt>Type:</dt>
+    <dd><%= @genre.genre_type %></dd>
+
+<dt>Image</dt>
+<dd class="uk-margin-small-top"><%= render FicdbWeb.SharedView, "_avatar.html", image: @genre.image, model: @genre %></dd>
+</div>
+

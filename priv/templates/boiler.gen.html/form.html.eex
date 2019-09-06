@@ -1,0 +1,21 @@
+<%%= form_for @changeset, @action, [multipart: true], fn f -> %>
+
+
+<%%= render FicdbWeb.SharedView, "_form_error_banner.html", changeset: @changeset %>
+
+
+<%= for {label, input, error} <- inputs, input do %>
+  <div class="uk-margin">
+    <%= label %>
+    <%= input %>
+    <%= error %>
+  </div>
+<% end %>
+
+<%%= render FicdbWeb.SharedView, "_avatar.html", image: @changeset.data.image, model: @changeset %>
+
+  <div class="uk-margin">
+    <%%= submit "Submit", class: "uk-button uk-button-primary" %>
+  </div>
+<%% end %>
+

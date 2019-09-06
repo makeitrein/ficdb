@@ -1,0 +1,24 @@
+<li>
+<ul>
+<li></li>
+</ul>
+									<span><em class="Counter"></em>
+										Search Genres</span>
+
+									<!-- subpanel -->
+									<div id="radius">
+										<ul>
+<%= for g <- ["Angst", "Fluff", "Smut", "Mystery", "Slice of Life", "Crack", "Quest",
+ "Slow Burn", "Hurt / Comfort", "Shipfic", "F/F", "Continuation",
+ "Gender Bender", "M/M", "Peggy Sue", "Comedy", "Drama", "Horror", "Rational",
+ "Fix Fic", "Dark", "Action", "Canon compliant", "Deconstruction", "LitRPG",
+ "CYOA", "Songfic", "Snippets", "Major AU ", "M/F", "Multi/Other", "Minor AU",
+ "Second Person POV", "Point Divergence", "Black Comedy", "Chatfic", "Good!",
+ "Depressed!", "Disabled!", "Drunk!", "Angry!", "GenreSavvy!", "Gamer!", "Gay!",
+ "Evil!", "TimeTraveler!", "Parent!", "Psycho!", "OP!", "Happy!"] do %>
+ 											<li><span><%= g %></span><input type="checkbox" name="<%= g %>" class="Check" /></li>
+
+ <% end %>
+										</ul>
+									</div>
+								</li>

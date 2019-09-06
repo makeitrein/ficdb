@@ -1,0 +1,15 @@
+<article class="uk-comment uk-margin">
+    <header class="uk-comment-header uk-grid uk-grid-small uk-flex-middle" uk-grid>
+        <div class="uk-width-auto">
+           <%= render FicdbWeb.SharedView, "_avatar.html", image: @user.image, model: @user, class: "uk-border-rounded" %>
+        </div>
+        <div class="uk-width-expand">
+            <h4 class="uk-comment-title uk-margin-remove">
+                <span><%= @user.username %></span>
+            </h4>
+            <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
+                <li>User since <%= relative(@user.inserted_at) %></li>
+            </ul>
+        </div>
+    </header>
+</article>

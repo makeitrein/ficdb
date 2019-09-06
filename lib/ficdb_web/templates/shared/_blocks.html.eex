@@ -1,0 +1,26 @@
+<div class="blocks flex flex-wrap -mx-2">
+<%= select @f, :page, @page_options, hidden: "true", selected: :page_all %>
+
+    <%= for {{name, id}, _idx} <- Enum.with_index(@page_options) do %>
+    <article class="w-1/2 md:w-1/4 px-2 mb-2 <%= if (@filter_values[:page] === id), do: "opacity-100", else: "opacity-50 hover:opacity-100 transition-fast"%>">
+
+        <a id="<%= id %>" data-enabled="<%= !!@current_user_id %>" class="colorgradient-card no-underline tracking-wide rounded-lg <%= if @current_user_id, do: "cursor-pointer", else: "cursor-not-allowed" %>">
+            <div class="">
+                <%= name %> <img src="<%= static_path(@conn, "/images/icon-goright-light.svg") %>"/></div>
+            <div class="text-xs italic opacity-50 pt-2">
+                <%= if (!!@current_user_id), do: @page_description[name], else: "Please Login First" %>
+            </div>
+        </a>
+
+    </article>
+    <%end %>
+
+    <article class="w-1/2 md:w-1/4 px-2 mb-2 cursor-pointer opacity-50 hover:opacity-100 transition-fast">
+        <a href="https://discord.gg/uRrEHfV" class="colorgradient-card rounded-lg no-underline tracking-wide">
+            <div class="">Discord Chat <img src="<%= static_path(@conn, "/images/icon-goright-light.svg") %>"/></div>
+            <div class="text-xs italic pt-2 opacity-50">Feedback + Chatter</div>
+        </a>
+
+    </article>
+</div>
+

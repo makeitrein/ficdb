@@ -1,0 +1,37 @@
+<div class="host-links flex flex-wrap w-64">
+<%= if @item.sb_id do %>
+<a class="grey-button p-1 no-underline px-3 block rounded-lg text-black mt-2 inline-block  w-full flex items-center"  target="_blank" href="<%= Ficdb.FanficCrawler.thread_no_threadmarks(Integer.to_string(@item.sb_id), :sb) %>">
+  <span class="w-8 inline-block"><img src="<%= static_path(@conn, "/images/host_icons/sb.png")%>"/></span><span>Read on Spacebattles</span>
+</a>
+<% end %>
+
+<%= if @item.sv_id do %>
+<a class="grey-button p-1 no-underline px-3 block rounded-lg text-black mt-2 inline-block  w-full flex items-center"  target="_blank" href="<%= Ficdb.FanficCrawler.thread_no_threadmarks(Integer.to_string(@item.sv_id), :sv) %>">
+  <span class="w-8 inline-block"><img  src="<%= static_path(@conn, "/images/host_icons/sv.png")%>"/></span><span>Read on Sufficient Velocity</span>
+</a>
+<% end %>
+
+<%= if @item.ff_id do %>
+<a class="grey-button p-1 no-underline px-3 block rounded-lg text-black mt-2 inline-block  w-full flex items-center"  target="_blank" href="<%= Ficdb.FanficCrawler.thread(Integer.to_string(@item.ff_id), :ff) %>">
+  <span class="w-8 inline-block"><img src="<%= static_path(@conn, "/images/host_icons/ff.png")%>"/></span><span>Read on Fanfiction.net</span>
+</a>
+<% end %>
+
+<%= if @item.fp_id do %>
+<a class="grey-button p-1 no-underline px-3 block rounded-lg text-black mt-2 inline-block  w-full flex items-center"  target="_blank" href="<%= Ficdb.FanficCrawler.thread(Integer.to_string(@item.fp_id), :fp)%>">
+  <span class="w-8 inline-block"><img  src="<%= static_path(@conn, "/images/host_icons/fp.png")%>"/></span><span>Read on Fictionpress</span>
+</a>
+<% end %>
+
+<%= if @item.ao3_id do %>
+<a class="grey-button p-1 no-underline px-3 block rounded-lg text-black mt-2 inline-block  w-full flex items-center"  target="_blank" href="<%= Ficdb.FanficCrawler.thread(Integer.to_string(@item.ao3_id), :ao3) %>">
+  <span class="w-8 inline-block"><img src="<%= static_path(@conn, "/images/host_icons/ao3.png")%>"/></span><span>Read on AO3</span>
+</a>
+<% end %>
+
+<%= if @item.url do %>
+<a class="grey-button p-1 no-underline px-3 block rounded-lg text-black mt-2 inline-block  w-full flex items-center truncate"  target="_blank" href="<%= @item.url %>">
+  <span class="w-8 inline-block"><img src="<%= static_path(@conn, "/images/link.png")%>"/></span><span>Read on Custom Website</span>
+</a>
+<% end %>
+</div>

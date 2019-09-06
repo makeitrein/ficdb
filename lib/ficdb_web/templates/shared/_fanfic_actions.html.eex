@@ -1,0 +1,22 @@
+<span class="text-xs rounded-lg bg-black text-white inline-block whitespace-no-wrap">
+    <a data-toggle="<%= "#rf-#{@item.id}" %>" class="add-review-button py-2 px-5 inline-block">
+        Review
+    </a>
+
+     <%= if {:ok} == Ficdb.Authorization.verify_owner_or_role(@conn, @item.submitter_id, [:admin, :mod]) do %>
+        <a href="<%= fanfic_path(@conn, :edit, @item.id) %>" class="border-l border-albino py-2 px-5 inline-block">
+              Edit
+          </a>
+      <% end %>
+
+      <%= Ficdb.Authorization.render(Ficdb.Authorization.verify_role(@conn, [:admin, :mod]), render("_approve_button.html", assigns))  %>
+
+
+    <a data-toggle="<%= "#bk-#{@item.id}" %>" class="add-review-button border-l border-albino py-2 px-5 inline-block">
+            Set Bookshelf
+        </a>
+</span>
+
+
+ 
+

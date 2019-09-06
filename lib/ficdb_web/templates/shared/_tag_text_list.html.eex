@@ -1,0 +1,2 @@
+<%= for item <- @list do %><span data-tippy-content="<%= item.description %>"><%= link to: fanfic_path(@conn, :index, Ficdb.EnumHelpers.set_nested_param(@conn.params, ["search", @param], [item.id])), "up-dash": "main", class: "uk-text-blue" do %><%= item.name %><% end %></span><% end %>
+

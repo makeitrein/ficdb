@@ -1,0 +1,3 @@
+<%= for suggestion <- @item.suggestions do %>
+   <%= render FicdbWeb.SharedView, "_suggestion_item.html", conn: @conn, suggestion: suggestion %>
+<% end %>

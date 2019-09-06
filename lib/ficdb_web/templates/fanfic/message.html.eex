@@ -1,0 +1,14 @@
+<div class="uk-alert uk-position-relative message" uk-alert>
+    <div class="uk-flex-middle uk-grid-small uk-grid" uk-grid>
+        <div class="uk-width-auto">
+        <img width="80" src="<%= static_path(@conn, "/images/skitter.png") %>"/>
+        </div>
+
+       <div class="uk-width-expand">
+        Welcome to Ficdb <small>(v0.1)</small>, a platform to discover, review, and share fanfics and web serials worth reading.
+
+        Check out our <%= link "FAQ page", to: page_path(@conn, :faq), class: "uk-preserve-color uk-text-bold", "up-dash": "main" %>
+        and our <a href="https://discord.gg/uRrEHfV" class="uk-preserve-color uk-text-bold">Discord community</a>!
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<%= form_for @changeset, @action, [multipart: true], fn f -> %>
+
+
+<%= render FicdbWeb.SharedView, "_form_error_banner.html", changeset: @changeset %>
+
+
+
+  <div class="uk-margin">
+    <%= label f, :suggestions_for_improvement, class: "block" %>
+    <%= number_input f, :fanfic_id, hidden: true %>
+    <%= textarea f, :content, class: "w-full max-w-sm", rows: 5 %>
+    <%= error_tag f, :content %>
+  </div>
+
+<%= label f, :genres, class: "block" %>
+<%= multiple_select f, :genres, @genre_dropdown_options, class: "w-2/3", selected: @changeset.data.genres |> Ficdb.SchemaHelpers.pluck(:id) %>
+<%= error_tag f, :genres %>
+
+  <div class="uk-margin">
+    <%= submit "Submit", class: "button mt-2" %>
+  </div>
+<% end %>
+

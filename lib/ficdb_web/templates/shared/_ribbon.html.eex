@@ -1,0 +1,10 @@
+<%= cond do %>
+<% Timex.after?(@item.last_chapter_at, Timex.shift(Timex.now, days: -1)) -> %>
+     <div class="ribbon right new"><span>New Today!</span></div>
+<% Timex.after?(@item.last_chapter_at, Timex.shift(Timex.now, days: -7)) -> %>
+  <div class="ribbon right"><span>New Chapter</span></div>
+<% true -> %>
+  <!-- nothing -->
+<% end %>
+
+

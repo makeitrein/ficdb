@@ -1,0 +1,12 @@
+<%= for item <- @list do %>
+<span data-tippy-content="<%= item.description %>" class="<%= @param %> ml-1 bg-black rounded-lg bg-black-dark cursor-pointer text-white text-xs pr-3 py-2 relative pl-8 inline-block mt-2 hover:underline hover:opacity-100 opacity-75">
+    <%= link to: fanfic_path(@conn, :index, Ficdb.EnumHelpers.set_nested_param(@conn.params, ["search", @param], [item.id])), class: "inline no-underline", "up-dash": "main" do %>
+        <span class="uk-result-thumbnail uk-cover-container">
+            <img class="h-full absolute pin-l pin-t rounded-l-lg inline-block align-middle" src="<%= Ficdb.Image.url({item.image, item}, :thumb) %>"/>
+        </span><span class="uk-name meta ml-2"><%= item.name %>
+         <%= if (assigns[:fanfic_count]) do %><span class="uk-text-muted uk-text-xs"> &middot; <%= Ficdb.SchemaHelpers.fanfic_count_english(item.fanfic_count) %></span> <% end %>
+         <%= Ficdb.Authorization.render(Ficdb.Authorization.verify_role(@conn, [:admin, :mod]), render("_edit_tag.html", Map.put(assigns, :item, item))) %>
+         </span>
+    <% end %>
+    </span>
+<% end %>

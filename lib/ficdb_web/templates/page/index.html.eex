@@ -1,0 +1,6 @@
+<h4>Latest Reviews</h4>
+<%= render FicdbWeb.SharedView, "_review_list.html", conn: @conn, reviews: @reviews %>
+<h4>Newly Added</h4>
+<%= render FicdbWeb.SharedView, "_result_list.html", conn: @conn, list: @fanfics, benchmark: @benchmark, item_path: &fanfic_path/3 %>
+
+

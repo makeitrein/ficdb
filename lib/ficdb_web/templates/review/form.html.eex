@@ -1,0 +1,32 @@
+<%= form_for @changeset, @action, [multipart: true, autocomplete: "off", "ujs-remote": true, class: "", "data-review-form": "true", "data-fanfic": assigns[:fanfic_id]], fn f -> %>
+
+
+    <%= render FicdbWeb.SharedView, "_form_error_banner.html", changeset: @changeset %>
+    <%= error_tag f, :rating %>
+
+    <%= label f, "Your Rating", class: "block mb-1" %>
+    <div class="jquery-stars-input margin-negative-bottom" data-stars="<%= @changeset.data.rating %>"></div>
+    <%= number_input f, :rating, class: "jquery-rating hidden", style: "height: 0", required: "true" %>
+
+
+
+      <div class="mb-2">
+        <%= label f, "Add a headline", class: "block mb-1" %>
+        <%= text_input f, :headline, class: "w-full", placeholder: "What's most important to know?" %>
+        <%= error_tag f, :headline %>
+      </div>
+
+      <div class="mb-2">
+        <%= label f, "Write your review", class: "block mb-1" %>
+        <%= textarea f, :content, rows: "10", class: "w-full", placeholder: "What did you like about this fanfic? Dislike? Opinions on the grammar, story structure, dialogue, etc... " %>
+        <%= error_tag f, :content %>
+      </div>
+
+      <%= submit "Submit", class: "button" %>
+
+
+
+  <%= hidden_input f, :fanfic_id %>
+
+<% end %>
+

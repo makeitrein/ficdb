@@ -1,0 +1,11 @@
+           <div id="up-results">
+
+<%= render FicdbWeb.SharedView, "_result_item.html", Map.merge(assigns, %{:item => @fanfic, :idx => nil, :path => fanfic_path(@conn, :edit, @fanfic.id)}) %>
+<%= render FicdbWeb.SharedView, "_review_list.html", conn: @conn, reviews: @fanfic.reviews %>
+<%= render FicdbWeb.SuggestionView, "form.html", conn: @conn, action: suggestion_path(@conn, :create), changeset: @suggestion_changeset, genre_dropdown_options: @genre_dropdown_options  %>
+<%= render FicdbWeb.SharedView, "_suggestion_list.html", conn: @conn, item: @fanfic  %>
+
+
+
+       </div>
+

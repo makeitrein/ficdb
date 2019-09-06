@@ -1,0 +1,34 @@
+a:hover, a.up-current, a.up-active {
+  .elastic-line:before {
+    right: 0;
+  }
+  .diamond {
+    .back {
+      transform: translate(-50%, -50%) scale(1) rotate(0);
+      opacity: 1;
+    }
+    .border {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(1.3);
+    }
+  }
+}
+
+.yellow-button {
+  background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
+  border-color: #a88734 #9c7e31 #846a29;
+  box-shadow: 0 1px 0 rgba(255,255,255,.4) inset;
+
+  &:hover, &:focus {
+    border-color: #a88734 #9c7e31 #846a29;
+    background: linear-gradient(to bottom,#f5d78e,#eeb933);
+  }
+}
+
+.grey-button {
+  background-image: linear-gradient(#fff,#f7f8fa 1px,#e7e9ec);
+  box-shadow: 0 1px 0 rgba(255,255,255,.6) inset;
+  &:hover {
+    background: linear-gradient(to bottom,#e7eaf0,#d9dce1);
+  }
+}

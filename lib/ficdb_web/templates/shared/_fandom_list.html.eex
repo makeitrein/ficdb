@@ -1,0 +1,9 @@
+<span class="whitespace-no-wrap">
+  [<%= for {fandom, idx} <- Enum.with_index @fandoms do %>
+  <%= link fandom.name, to: fanfic_path(@conn, :index, Ficdb.EnumHelpers.push_nested_param(@conn.params, ["search", "fandoms"], fandom.id)), "up-dash": "main", class: "" %>
+  <%= if idx + 1 < length @fandoms do %>
+   <i class="jam jam-arrows-fullscreen inline-block align-middle inset-b-2px relative"></i>
+   <% end %>
+  <% end %>]
+</span>
+

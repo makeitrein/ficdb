@@ -1,0 +1,1 @@
+<%= render "form.html", Map.put(assigns, :action, suggestion_path(@conn, :update, @suggestion)) %>

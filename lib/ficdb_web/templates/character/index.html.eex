@@ -1,0 +1,30 @@
+<h2>Listing Characters</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Image</th>
+      <th>Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for character <- @characters do %>
+    <tr>
+      <td><%= character.description %></td>
+      <td><%= character.image %></td>
+      <td><%= character.name %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: character_path(@conn, :show, character), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: character_path(@conn, :edit, character), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: character_path(@conn, :delete, character), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Character", to: character_path(@conn, :new) %></span>

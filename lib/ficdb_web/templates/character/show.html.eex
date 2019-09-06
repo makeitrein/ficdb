@@ -1,0 +1,23 @@
+<h2>Show Character</h2>
+
+<ul>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @character.description %>
+  </li>
+
+  <li>
+    <strong>Image:</strong>
+    <%= @character.image %>
+  </li>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @character.name %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: character_path(@conn, :edit, @character) %></span>
+<span><%= link "Back", to: character_path(@conn, :index) %></span>

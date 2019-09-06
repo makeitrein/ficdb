@@ -1,0 +1,28 @@
+<div class="text-sm my-6">
+    <%= for breadcrumb_trail <- (@breadcrumb_trails || []) do %>
+    <span class="flex items-center">
+        <span class="">
+            <%= link to: fanfic_path(@conn, :index), "up-dash": "main" do %>
+            <img width="40" src="<%= static_path(@conn, "/images/logo_only.svg")%>"/> <% end %>
+        </span>
+
+        <% trail_length = Enum.count(breadcrumb_trail) %>
+        <%= for {breadcrumb, i} <- Enum.with_index(breadcrumb_trail) do %>
+        <span class="">
+            <%= if breadcrumb[:url] do %>
+            <span class="text-grey mx-4">/</span>
+            <a up-dash="main" class="text-grey" href="<%= breadcrumb[:url] %>"><span itemprop="name">
+                    <%= breadcrumb[:name] %></span></a>
+            <% else %>
+            <span>
+                <%= breadcrumb[:name] %></span>
+            <% end %>
+            <meta content="<%= i + 1 %>" />
+        </span>
+        <!--<%= if trail_length != i + 1 do %>-->
+        <!--&gt;-->
+        <!--<% end %>-->
+        <% end %>
+    </span>
+    <% end %>
+</div>

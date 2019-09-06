@@ -1,0 +1,207 @@
+<h4 class="mb-8">Ficdb FAQ</h4>
+
+<dl class="uk-description-list">
+    <dt class="mb-2">What is Ficdb?</dt>
+    <dd>
+        <div uk-grid class="flex uk-grid-small uk-grid  flex-middle uk-margin-small-top">
+            <div class="uk-width-auto">
+                <img width="120" src="<%= static_path(@conn, "/images/logo.svg") %>"/>
+
+            </div>
+            <div class="flex-1 pl-8 pt-2 ">Ficdb is Goodreads for webfiction... a platform to discover, review, and share fanfics and web serials worth reading.
+                Hunting for quality webfiction sucks, but Ficdb can help make it suck less.</div>
+        </div>
+
+    </dd>
+    <dt class="mb-2">Who are you?</dt>
+    <dd>
+
+        <div uk-grid class="flex uk-grid-small uk-grid  flex-middle uk-margin-small-top">
+            <div class="uk-width-auto">
+                <img width="120" src="<%= static_path(@conn, "/images/parks-and-rec.gif") %>"/>
+
+            </div>
+            <p class="flex-1 pl-8 pt-2 "> A funemployed programmer from sunny Oakland who likes to distract myself from the world's
+                problems with Naruto highschool A.U. fics. You can find me at my local Blue Bottle cafe most weekdays nursing a cold brew coffee, a cookie, and an existential crisis.</p>
+        </div>
+    </dd>
+
+    <dt class="mb-2">What things can I submit?</dt>
+        <dd>
+
+            <div uk-grid class="flex uk-grid-small uk-grid  flex-middle uk-margin-small-top">
+                <div class="uk-width-auto">
+                    <img width="120" src="<%= static_path(@conn, "/images/patrick-star.png") %>"/>
+
+                </div>
+                <p class="flex-1 pl-8 pt-2 ">
+                You CAN submit your own works, mature works, and original works. And pretty much anything else.
+                However, you CANNOT submit works with explicit underage sexual content.
+                </p>
+            </div>
+        </dd>
+
+    <dt class="mb-2">What's the end game?</dt>
+    <dd>
+        <div uk-grid class="flex uk-grid-small uk-grid  flex-middle uk-margin-small-top">
+            <div class="uk-width-auto">
+                <img width="120" src="<%= static_path(@conn, "/images/Skynet.jpg") %>"/>
+
+            </div>
+            <div class="flex-1 pl-8 pt-2 ">
+                A webfiction recommendation engine powered by machine learning.
+                Once there's enough fanfics and reviews in the database, Ficdb will be able to
+                make suggestions tailored to your reading preferences. Moral of the story: feed Ficdb reviews and be rewarded with Netflix-style recommendations.
+            </div>
+        </div>
+        <br />
+
+    </dd>
+
+    <dt class="mb-2">Any review guidelines?</dt>
+    <dd>
+
+        <div uk-grid class="flex uk-grid-small uk-grid  flex-middle uk-margin-small-top">
+            <div class="uk-width-auto">
+                <img width="120" src="<%= static_path(@conn, "/images/ego.jpg") %>"/>
+
+            </div>
+            <div class="flex-1 pl-8 pt-2 ">
+                <i>
+                    In many ways, the work of a critic is easy.
+                    We risk very little yet enjoy a position over those who offer up their work and their selves to our judgment.
+                    <br />
+                    <br />
+                    We thrive on negative criticism, which is fun to write and to read. But the bitter truth we critics must face is that, in the grand scheme of things, the average piece of junk is more meaningful than our criticism designating it so.
+                </i>
+                <br />
+                                    <br />
+                <p>
+                        Even if your find an author's work lacking, please be respectful in your critique.
+                        Choose the higher road - review in a constructive, not callous, manner.
+                        </p>
+            </div>
+        </div>
+
+
+
+    </dd>
+
+    <dt class="mb-2">What are the ground rules?</dt>
+    <dd>
+        <div uk-grid class="flex uk-grid-small uk-grid  flex-middle uk-margin-small-top">
+            <div class="uk-width-auto">
+                <iframe width="120" src="https://www.youtube.com/embed/ZXQR-cPXlmY?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+            <div class="flex-1 pl-8 pt-2 ">Racism? That's a paddlin'. Sexism? That's a paddlin'.
+            Politics? Oh, you better believe that's a paddlin'.
+            <br/>
+            <br/>
+            It's really, really easy for online communities to degenerate into soul-numbing
+                    yelling matches surrounding hot-button issues.
+                    All it takes is one nasty comment and boom goes the proverbial dynamite.
+            <br/>
+
+                     <br/>
+                            There's a time and place to hash out complex social, political, or scientific issues. A webfiction review site is probably not it.
+                                                For the sake of community integrity and my cortisol levels, please keep it classy.
+
+        </div>
+        </div>
+
+
+
+    </dd>
+    <dt class="mb-2">How can I help?</dt>
+    <dd>
+    <div uk-grid class="flex uk-grid-small uk-grid  flex-middle uk-margin-small-top">
+                <div class="uk-width-auto">
+                    <img width="120" src="<%= static_path(@conn, "/images/jfk.jpg") %>"/>
+                </div>
+                <div class="flex-1 pl-8 pt-2 ">
+                    Ask not what Ficdb can do for you — ask what you can do for Ficdb!
+                    <br/>
+                    <br/>
+                    If you like what you see, copy the following link and send to the appropriate party: <a href="https://ficdb.com">https://ficdb.com</a>.
+                           If you don't like what you see, head on over to the <a href="https://discord.gg/uRrEHfV">#feedback channel</a> and let's talk shop.
+                </div>
+            </div>
+
+    </dd>
+
+    <dt class="mb-2">Where can I report a bug?</dt>
+    <dd>
+    <div uk-grid class="flex uk-grid-small uk-grid  flex-middle uk-margin-small-top">
+                    <div class="uk-width-auto">
+                        <img width="120" src="<%= static_path(@conn, "/images/catbug.png") %>"/>
+                    </div>
+                    <div class="flex-1 pl-8 pt-2 ">
+                         Ficdb is a wide-eyed, bushy-tailed baby of a web application.
+                                Therefore, expect some level of friction when using it.
+                                Report any weirdness you find on the <a href="https://discord.gg/uRrEHfV">#bug-report channel</a> for further investigation.
+                    </div>
+                </div>
+
+    </dd>
+
+    <dt class="mb-2">Who helped out with this?</dt>
+    <dd>
+    <div uk-grid class="flex uk-grid-small uk-grid  flex-middle uk-margin-small-top">
+                            <div class="uk-width-auto">
+                                <img width="120" src="<%= static_path(@conn, "/images/blue-bottle.png") %>"/>
+                            </div>
+                            <div class="flex-1 pl-8 pt-2 ">
+                                 Shout outs to my roommate for the design help, Blue Bottle for the coffee,
+                                         <a href="https://www.reddit.com/user/Bz0706">Bz0706</a> for scary Skitter, and
+                                         <a href="https://en.wikipedia.org/wiki/Stanislav_Petrov">Stanislav Petrov</a> for saving the world from
+                                         nuclear war.
+                            </div>
+                        </div>
+
+    </dd>
+
+    <dt class="mb-2">What tech powers Ficdb?</dt>
+    <dd>
+    <div uk-grid class="flex uk-grid-small uk-grid  flex-middle uk-margin-small-top">
+                        <div class="uk-width-auto">
+                            <img width="120" src="<%= static_path(@conn, "/images/phoenix.png") %>"/>
+                        </div>
+                        <div class="flex-1 pl-8 pt-2 ">
+                             <a href="https://elixir-lang.org/">Elixir</a> +
+                                     <a href="http://www.phoenixframework.org/">Phoenix</a> +
+                                     <a href="https://getuikit.com">UIKit</a> +
+                                     <a href="https://unpoly.com/">Unpoly</a> +
+                                     <a href="https://tg.pl/drab">Drab</a> +
+                                     <a href="https://github.com/zanderxyz/veil">Veil</a> +
+                                     <a href="https://gigalixir.com/">Gigalixir</a>
+
+                                     <br/>
+
+                                     I've open-sourced the code <a href="https://gitlab.com/makeitrein/ficdb_open">on Gitlab</a>. Be warned, it's pretty shitty.
+                        </div>
+                    </div>
+
+    </dd>
+
+    <dt class="mb-2">What is your favorite webfiction?</dt>
+    <dd>
+    <div uk-grid class="uk-grid flex uk-grid-small uk-grid  flex-middle uk-margin-small-top">
+                            <div class="uk-width-auto">
+                                <img width="120" src="<%= static_path(@conn, "/images/fargo.jpeg") %>"/>
+                            </div>
+                            <div class="flex-1 pl-8 pt-2 ">
+                                  For completed fics, <a href="https://www.webfiction.net/s/11228999/1/Fargo">Fargo (PMMM)</a> by Bavitz
+                                         and
+                                         <a href="https://forums.spacebattles.com/threads/burn-up-worm-complete.395526/">Burn Up (Worm)</a> by JinglyJangles are the top contenders.
+                                         For ongoing fics, I'll put my vote towards <a href="https://www.webfiction.net/s/12431866/1/Sanitize">Sanitize (Naruto)</a>,
+                                         <a href="https://forums.spacebattles.com/threads/path-of-ruin-star-wars-si.541256/">Path of Ruin (Star Wars)</a>,
+                                         <a href="https://www.fictionpress.com/s/2961893/1/Mother-of-Learning">Mother of Learning (Original)</a>,
+                                         and
+                                         <a href="https://archiveofourown.org/works/11478249/chapters/25740126">Worth the Candle (Original)</a>.
+
+
+                            </div>
+        </div>
+    </dd>
+</dl>
+</div>

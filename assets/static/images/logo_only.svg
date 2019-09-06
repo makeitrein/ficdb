@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="201.42120361328125">
+    <defs id="SvgjsDefs2467"></defs>
+    <g id="SvgjsG2468" featurekey="root" fill="#ffffff" transform="matrix(1,0,0,1,0,0)"></g>
+    <g id="SvgjsG2469" featurekey="symbol1" fill="#28a5f5"
+       transform="matrix(2.1427667616994825,0,0,2.1427667616994825,-17.135178831459285,-6.4277943140956815)">
+        <rect x="25.249" y="20.252" transform="matrix(0.7071 0.7071 -0.7071 0.7071 46.463 -22.1737)" fill="#fff"
+              stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+              width="49.499" height="49.497"></rect>
+        <path stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+              d="M49.999,69.395  l24.394-24.392L50,20.608L25.608,45.002L49.999,69.395z M63.785,45.002L49.999,58.787L36.214,45.002L50,31.215L63.785,45.002z"></path>
+        <rect x="47.754" y="42.754" transform="matrix(-0.707 0.7072 -0.7072 -0.707 117.1804 41.4576)" stroke="#000"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="4.496"
+              height="4.497"></rect>
+        <polygon stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+                 points="  49.999,80 20,50.004 15.002,55 49.999,90 85,55 80,50 "></polygon>
+    </g>
+</svg>

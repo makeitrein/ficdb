@@ -1,0 +1,11 @@
+<h4 class="mb-4 text-blue-light w-1/2">Welcome! If you discover any incorrect information about a fanfic, please write a suggestion in the suggestion box at the bottom of the page for the fanfic in question.
+Otherwise, leave your comments down below!
+
+
+</h4>
+
+<%= render FicdbWeb.SuggestionView, "form.html", Map.merge(assigns, %{action: suggestion_path(@conn, :create)})  %>
+
+<%= for suggestion <- @suggestions do %>
+   <%= render FicdbWeb.SharedView, "_suggestion_item.html", Map.merge(assigns, %{suggestion: suggestion}) %>
+<% end %>

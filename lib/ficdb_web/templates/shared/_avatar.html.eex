@@ -1,0 +1,5 @@
+<img
+   class="rounded-lg <%= assigns[:class] %>"
+   src="<%= Ficdb.Image.url({@image, @model}, :thumb) %>"
+   style="width: 50px !important; height: 50px !important;"
+   alt=""/>

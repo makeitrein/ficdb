@@ -1,0 +1,149 @@
+body, html {
+  -webkit-overflow-scrolling: touch;
+}
+
+.uk-border-rounded {
+  border-radius: 3px !important;
+}
+
+.uk-v-middle {
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.uk-border-remove {
+  border: none !important;
+  &:before {
+    border: none !important;
+
+  }
+}
+
+.up-modal {
+  display: none;
+  &.visible {
+    display: block;
+  }
+}
+
+.up-popup, .up-modal-content {
+  background: #222 !important;
+  border-radius: 4px;
+
+  .up-modal-close {
+    padding: 10px 20px;
+  }
+}
+
+.uk-subnav a.up-current {
+  background-color: #fff !important;
+  color: #666 !important;
+}
+
+.hidden {
+  display: none;
+}
+
+.uk-comment + .uk-alert {
+  margin-top: 60px;
+}
+
+.uk-tab a.up-current {
+  color: #fff !important;
+  border-color: #fff;
+}
+
+.uk-description-list > dt {
+  color: #676767 !important;
+  font-size: 1rem;
+}
+
+.uk-description-list > dt:nth-child(n+2) {
+  margin-top: 50px;
+}
+
+.uk-navbar-nav>li {
+  position: relative;
+}
+
+.uk-text-default {
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-style: normal;
+}
+
+.uk-text-decoration-none {
+  text-decoration: none !important;
+}
+
+
+.uk-alert {
+  border-radius: 4px;
+}
+
+.uk-accordion-title:after {
+
+  position: absolute;
+  right: 30px;
+  top: 50px;
+  transform: translateY(-50%)
+}
+
+.uk-link-line::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 15px;
+  right: calc(102% - 15px);
+  bottom: 20px;
+  height: 2px;
+  background-color: currentColor;
+  transition: .3s ease-in-out;
+  transition-property: right;
+}
+
+.uk-tile-image {
+  margin-bottom: -10%;
+  margin-top: -10%;
+}
+
+.uk-text-xs {
+  font-size: 12px;
+}
+
+.uk-link-line:hover::before {
+  right: 15px;
+}
+
+.uk-break-word {
+  word-break: break-word;
+}
+
+.uk-text-white {
+  color: white;
+}
+
+.uk-container-small {
+  max-width: 1000px;
+}
+
+.uk-label, .uk-button {
+  border-radius: 4px !important;
+}
+
+.uk-tab span[uk-icon] {
+  padding-right: 5px;
+}
+
+
+.uk-preserve-color {
+  //color: $global-color !important;
+}
+
+
+.uk-margin-negative-bottom {
+  margin-bottom: -5px;
+}
+
+.uk-margin-negative-top {
+  margin-top: -5px !important;
+}

@@ -1,0 +1,3 @@
+<div class="absolute pin-r pin-t">
+    <%= render FicdbWeb.SharedView, "_button.html", assigns %>
+</div>

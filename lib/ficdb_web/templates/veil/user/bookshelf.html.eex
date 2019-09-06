@@ -1,0 +1,1 @@
+<%= render FicdbWeb.SharedView, "_result_list.html", benchmark: @benchmark, conn: @conn, list: @fanfics, current_user_bookshelves: @current_user_bookshelves,  item_path: &fanfic_path/3 %>

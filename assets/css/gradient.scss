@@ -1,0 +1,72 @@
+.uk-result-list .gradient {
+  &:before {
+    opacity: .2;
+  }
+}
+
+.gradient {
+  transition: .3s all;
+  cursor: pointer;
+  position: relative;
+  transform-origin: top left;
+  border: none;
+  padding: 0;
+  outline: none;
+
+  &:hover:after, &:focus:after {
+    opacity: .6;
+  }
+  &:hover:before, &:focus:before {
+    opacity: 0;
+  }
+  &:after {
+    opacity: 0;
+    border-radius: inherit;
+    transition: .3s all;
+    z-index: 0;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -1px;
+    bottom: -1px;
+    left: 0;
+    background-image: linear-gradient(to left, #002f4b, #dc4225);
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    border-radius: inherit;
+    transition: .3s all;
+    top: 0;
+    right: -1px;
+    z-index: 2;
+    bottom: -1px;
+    left: 0;
+    background-image: linear-gradient(to right, #002f4b, #dc4225);
+    opacity: .7;
+  }
+
+
+  &:hover, &:focus {
+    .elastic-line:before {
+      right: 5px;
+    }
+
+    .uk-animation-custom-kenburns {
+      transition: 15s transform ease-out;
+      transform: scale(1.2)
+    }
+  }
+
+
+  > * {
+    z-index: 2;
+  }
+
+}
+
+.uk-animation-custom-kenburns {
+  transition: 5s transform ease-out;
+  transform-origin: 100% 0;
+}
+

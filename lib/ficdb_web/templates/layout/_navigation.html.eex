@@ -1,0 +1,55 @@
+<div class="flex flex-wrap tracking-wide items-center content-start	 text-white md:text-center mx-4 mt-6" up-nav>
+        <div class="inline-block md:flex-1 hidden md:block">
+            <%= link to: fanfic_path(@conn, :index), class: "", "up-dash": "main" do %>
+                <img width="140" src="<%= static_path(@conn, "/images/logo.svg")%>"/>
+            <% end %>
+        </div>
+
+        <div class="inline-block md:flex-1">
+
+                    <%= active_link(@conn, to: fanfic_path(@conn, :index), active: ~r/[\s\S]*/, class: "no-underline inline-flex items-center inline-flex items-center", "up-dash": "main", "up-alias": "/ /fanfics/* /?*") do %>
+                    <span class="diamond invisible md:visible">
+                                    <span class="border"></span>
+                                    <span class="back"></span>
+                                  </span>
+                        <span class="elastic-line ml-3">FANFICS</span>
+                    <% end %>
+                </div>
+
+
+        <div class="inline-block md:flex-1">
+                    <%= active_link(@conn, to: review_path(@conn, :index), class: "no-underline inline-flex items-center", "up-dash": "main",  "up-alias": "/reviews") do %>
+                    <span class="diamond invisible md:visible">
+                                                <span class="border"></span>
+                                                <span class="back"></span>
+                                              </span>
+                        <span class="elastic-line ml-3">REVIEWS</span>
+                    <% end %>
+                </div>
+
+
+        <div class="inline-block md:flex-1">
+            <%= active_link(@conn, to: fandom_path(@conn, :index), class: "no-underline inline-flex items-center", "up-dash": "main",  "up-alias": "/fandoms*") do %>
+            <span class="diamond invisible md:visible">
+                                        <span class="border"></span>
+                                        <span class="back"></span>
+                                      </span>
+                <span class="elastic-line ml-3">FANDOMS</span>
+            <% end %>
+        </div>
+
+        <div class="inline-block md:flex-1">
+            <%= active_link(@conn, to: genre_path(@conn, :index), class: "no-underline inline-flex items-center", "up-dash": "main",  "up-alias": "/genres*") do %>
+            <span class="diamond invisible md:visible">
+                                        <span class="border"></span>
+                                        <span class="back"></span>
+                                      </span>
+                <span class="elastic-line ml-3">GENRES</span>
+            <% end %>
+        </div>
+
+        <%= render "_veil_auth_or_user.html", assigns %>
+
+
+</div>
+

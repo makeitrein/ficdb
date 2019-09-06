@@ -1,0 +1,25 @@
+<h4>Showing <%= length @users %> Users</h4>
+
+<%= for user <- @users do %>
+    <header class="uk-comment-header uk-grid-small uk-grid uk-flex-middle" uk-grid>
+            <div class="uk-width-auto">
+               <%= render FicdbWeb.SharedView, "_avatar.html", image: user.image, model: user, class: "uk-border-rounded" %>
+            </div>
+            <div class="uk-width-expand">
+                <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
+                    <li><%= link user.username , to: account_path(@conn, :show, user.id), class: "uk-preserve-color", "up-dash": "main" %></li>
+                    <li><span href="#"><%= relative(user.inserted_at) %></span></li>
+                    <li><span href="#"><%= user.role %></span></li>
+                    <li>
+                    <span>
+                    <a ujs-method="post" ujs-remote ujs-confirm="Are you sure?" href="<%= "/admin/submitter/#{user.id}" %>">Submitter</a> &middot;
+                    <a ujs-method="post" ujs-remote ujs-confirm="Are you sure?" href="<%= "/admin/mod/#{user.id}" %>">Moderator</a> &middot;
+                    <a class="uk-text-danger" ujs-method="post" ujs-remote ujs-confirm="Are you sure?" href="<%= "/admin/banned/#{user.id}" %>">Banned</a>
+                    </span>
+                    </li>
+
+                </ul>
+            </div>
+        </header>
+<% end %>
+

@@ -1,0 +1,5 @@
+ <span class="py-1 px-3 border-grey border rounded-lg text-grey">
+     <a data-toggle="<%= "#bk-#{@item.id}" %>" class="add-to-bookshelf">
+         <i class="jam jam-book text-lg inline-block align-middle pb-px mb-px -mr-1"></i> Bookshelf
+     </a>
+ </span>

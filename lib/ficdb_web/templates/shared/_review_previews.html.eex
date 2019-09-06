@@ -1,0 +1,9 @@
+<%= for review <- @reviews |> Enum.filter(fn review -> !!review.headline end) |> Enum.slice(0, 4) do %>
+<div>
+            <%= link to: "#{fanfic_path(@conn, :show, review.fanfic_id)}#review-#{review.id}", "up-dash": "#up-results",  class: "title uk-h5 uk-margin-remove uk-link-reset" do %>
+                          <%= for star <- 0..(review.rating - 1) do %><i class="jam jam-star text-lg inline-block align-middle mb-1 -mr-1"></i><% end %>
+                          <span><%= review.headline %></span>
+<% end %>
+
+</div>
+<% end %>

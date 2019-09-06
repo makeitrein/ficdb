@@ -1,0 +1,17 @@
+<h2 class="uk-h3">0.1 <span class="uk-text-muted">(September 29, 2018)</span></h2>
+<ul class="uk-list">
+<li class="uk-flex uk-flex-top">
+    <span class="uk-label uk-label-success uk-margin-right uk-text-center uk-width-small tm-label-changelog uk-flex-none uk-preserve-color">Added</span>
+    <div>Populated genres + fandoms + fanfics for initial Ficdb release</div>
+</li>
+
+<li class="uk-flex uk-flex-top">
+    <span class="uk-label uk-label-success uk-margin-right uk-text-center uk-width-small tm-label-changelog uk-flex-none">Changed</span>
+    <div>Fanfic submission are now admin-only</div>
+</li>
+
+<li class="uk-flex uk-flex-top">
+    <span class="uk-label uk-label-success uk-margin-right uk-text-center uk-width-small tm-label-changelog uk-flex-none">Added</span>
+    <div>Create changelog page to prove productivity</div>
+</li>
+</ul>

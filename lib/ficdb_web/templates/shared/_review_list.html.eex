@@ -1,0 +1,11 @@
+<% reviews_with_headline = @reviews |> Enum.filter(fn review -> !!review.headline end) %>
+<% reviews_without_text = @reviews |> Enum.filter(fn review -> !review.headline end) %>
+
+<div class="border-albino bg-black-light rounded-lg mb-4">
+<%= for {review, _idx} <- Enum.with_index(reviews_with_headline) do %>
+   <%= render FicdbWeb.SharedView, "_review_item.html", conn: @conn, review: review %>
+<% end %>
+<%= for {review, _idx} <- Enum.with_index(reviews_without_text) do %>
+   <%= render FicdbWeb.SharedView, "_review_item.html", conn: @conn, review: review %>
+<% end %>
+</div>

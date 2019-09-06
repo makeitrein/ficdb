@@ -1,0 +1,25 @@
+<%= Ficdb.Authorization.render(Ficdb.Authorization.verify_owner_or_role(@conn, @fandom.submitter_id, [:admin]), render(FicdbWeb.SharedView, "_top_right_action.html", text: "Edit", path: fandom_path(@conn, :edit, @fandom.id))) %>
+
+<div class="uk-description-list uk-section uk-padding-small">
+
+    <dt>Name:</dt>
+    <dd><%= @fandom.name %></dd>
+
+    <dt>Description:</dt>
+    <dd><%= @fandom.description %></dd>
+
+    <dt>Fandom Type:</dt>
+    <dd><%= @fandom.fandom_type %></dd>
+
+    <dt>Characters:</dt>
+    <dd><%= for character <- @fandom.characters do %>
+
+    <%= character.name %>
+    <% end %>
+
+    </dd>
+
+<dt>Image</dt>
+<dd><%= render FicdbWeb.SharedView, "_avatar.html", image: @fandom.image, model: @fandom %></dd>
+</div>
+

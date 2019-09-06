@@ -1,0 +1,172 @@
+<% show_description = @conn.params["search"]["show_description"] == "true" %>
+
+<div id="<%= "result-item-#{@item.id}" %>" class="px-8 group <%= if @item.current_user_review, do: "border-l-4 border-yellow" %>
+result-item mb-4 content-block text-left shadow
+<%= if assigns[:idx], do: "hover:shadow-md", else: "shadow-md" %>
+">
+
+
+
+                    <%= render "_ribbon.html", assigns %>
+
+
+
+    <div class="flex flex-wrap <%= if assigns[:idx], do: "" %>">
+
+
+        <div class="lg:flex-1 md:flex-grow <%= if !assigns[:idx], do: "py-8", else: "py-6" %>">
+
+
+            <div class="flex align-center flex-col">
+
+                <div class="text-lg">
+
+                    <%= if @conn.params["modal"] do %>
+                    <%= link @item.name, to: fanfic_path(@conn, :show, @item.id), "up-modal": "main", "up-restore-scroll": true, class: "text-left flex-auto inline-block align-middle" %>
+                    <% else %>
+                    <%= link @item.name, to: fanfic_path(@conn, :show, @item.id), "up-dash": "main", "up-restore-scroll": true, class: "text-left flex-auto inline-block align-middle" %>
+                    <% end %>
+
+                </div>
+
+
+                <div class="text-pink text-xs label-text"><%= current_approval_status_human(@item) %></div>
+
+
+                <div class="text-sm text-grey mt-1 pt-px">
+
+                    <span class="jquery-stars inline-block align-top h-4" data-stars="<%= @item.review_avg %>">
+                    </span>
+                    &middot;
+                    <%= if @conn.params["modal"] do %><a href="<%= fanfic_path(@conn, :show, @item.id) %>" up-modal="main"><% else %><a href="<%= fanfic_path(@conn, :show, @item.id) %>" up-dash="main"><% end %>
+
+                        <i class="jam jam-messages text-lg inline-block align-middle pb-px mb-px text-grey"></i>
+                        <%= (@item.review_count |> Integer.to_string |> Kernel.<>(Inflex.inflect(" review", @item.review_count))) %>
+
+                    </a>
+
+                    &middot;
+
+
+
+
+
+
+
+                    <%= render "_fandom_list.html", conn: @conn, fandoms: @item.fandoms %>
+
+                    &middot;
+
+                    by
+                    <%= link @item.author_name, to: fanfic_path(@conn, :index, Ficdb.EnumHelpers.set_nested_param(@conn.params, ["search", "title"], @item.author_name)), class: "" %>
+
+                    <div class="text-whitest mt-px">
+                        <%= @item.maturity %>
+                        &middot;
+                        <%= @item.status %>
+                        &middot;
+                        <%= Ficdb.NumberHelpers.in_thousands(@item.word_count) %> words
+                        &middot;
+                        updated
+                        <%= relative(@item.last_chapter_at) %>
+
+
+                    </div>
+
+                     
+
+                    <%= if !assigns[:idx] || show_description do %>
+                        <div class="text-left leading-normal text-white border rounded border-white bg-black border-albino px-3 py-3 mt-4 inline-block">
+                            <div class="italic whitespace-pre-wrap"><%= @item.description %></div>
+                                <div class="mt-2 text-whitest">
+                                   submitted by <%= @item.submitter && @item.submitter.username %> &middot; updated by <%= @item.updater && @item.updater.username %> &middot; approved by <%= @item.approver && @item.approver.username %>
+                                </div>
+                        </div>
+
+
+                         <%= render "_host_links.html", assigns %>
+
+
+                    <% end %>
+
+
+
+
+                </div>
+
+
+
+
+            </div>
+
+
+        </div>
+        <div class="lg:max-w-md lg:text-right <%= !show_description && "" %> md:pl-8 lg:<%= if !assigns[:idx], do: "py-8", else: "pt-6 pb-2" %>">
+                <%= render "_tag_list.html", conn: @conn, list: @item.genres, param: "genres" %>
+
+            <%= if !assigns[:idx] do %>
+            <div class="py-3 mt-4">
+                <canvas data-chart="<%= Poison.encode!(@item.reviews |> Ficdb.SchemaHelpers.pluck(:rating) |> Enum.reduce(%{1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0}, fn x, acc -> Map.update(acc, x, 1, &(&1 + 1)) end)) %>" id="chart"></canvas>
+            </div>
+            <% end %>
+
+        </div>
+
+
+
+    </div>
+
+    <div class="flex justify-between flex-wrap items-center pb-4">
+                         <div>
+                        <%= render "_main_character.html", assigns %>
+                        <%= render "_primary_relationship_list.html", conn: @conn, primary_relationship: @item.primary_relationship %>
+                        <%= render "_current_bookshelf.html", assigns %>
+                        </div>
+
+                        <div class="<%= if assigns[:idx], do: "md:opacity-0" %> group-hover:opacity-100 transition-opacity">
+
+                        <span class="">
+                        <%= render("_fanfic_actions.html", assigns)  %>
+                        </span>
+                        </div>
+
+                    </div>
+
+    <div class="hidden px-8 py-6 <%= if !assigns[:idx], do: "-mx-8", else: "-mx-4" %> border-t border-albino" id="<%= "bk-#{@item.id}" %>">
+            <%= if is_nil(@conn.assigns[:veil_user_id]) do %>
+                Nope, nope, nope. You gotta                      <%= link "login", to: user_path(@conn, :new), "up-dash": "main", class: "text-blue" %>
+ first to add bookshelves.
+            <% end %>
+            <%= Ficdb.Authorization.render(Ficdb.Authorization.authenticate(@conn), render("_bookshelves.html", assigns)) %>
+
+    </div>
+
+    <div class="px-8 pt-2 pb-6 <%= if !assigns[:idx], do: "-mx-8", else: "hidden -mx-4" %> border-t border-albino" id="<%= "rf-#{@item.id}" %>">
+        <%= if is_nil(@conn.assigns[:veil_user_id]) do %>
+        <div class="pt-3">
+                                        Nope, nope, nope. You gotta                      <%= link "login", to: user_path(@conn, :new), "up-dash": "main", class: "text-blue" %>
+ first to review.
+ </div>
+                    <% else %>
+                    <%= render FicdbWeb.ReviewView, "form.html",
+                                conn: @conn,
+                                fanfic_id: @item.id,
+                                changeset: (@item.current_user_review || (@item |> Ecto.build_assoc(:reviews))) |> Ficdb.Directory.change_review, action: if @item.current_user_review, do: review_path(@conn, :update, @item.current_user_review), else: review_path(@conn, :create) %>
+                    <% end %>
+
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,67 @@
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127033995-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-127033995-1');
+  </script>
+
+      <%= csrf_meta_tag() %>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="google-site-verification" content="G9DnKDOqBlyBgz3_lNAJf5haUTCrmFG9w8oiR07JSKw" />
+        <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat|Muli:300,400,700" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/jam-icons@2.0.0/css/jam.min.css">
+    <script async src="https://unpkg.com/delayed-scroll-restoration-polyfill@0.1.1/index.js"></script>
+
+
+<title><%= @view_module.title(@view_template, assigns) %></title>
+     <script>// DO NOT REMOVE EMPTY SCRIPT TAG - resolves initial animaiton flicker bug - https://bugs.chromium.org/p/chromium/issues/detail?id=332189</script>
+     <script async src="<%= static_path(@conn, "/js/app.js") %>"></script>
+
+  </head>
+
+
+
+  <body class="bg-black font-sans pb-12">
+  <div id="page">
+
+      <%= render "_navigation.html", assigns %>
+      <main class="container mx-auto text-white relative" role="main">
+
+      <%= render Ficdb.BreadcrumbleView, "breadcrumb.html", breadcrumb_trails: assigns[:breadcrumb_trails], conn: @conn %>
+
+      <%= if get_flash(@conn, :info) do %><div class="border border-blue-light rounded-lg mb-2 bg-blue-lightest px-4 py-3 text-blue-dark">
+      <%= get_flash(@conn, :info) %></div><% end %>
+      <%= if get_flash(@conn, :error) do %><div class="border border-red-light rounded-lg mb-2 bg-red-lightest px-4 py-3 text-red-dark">
+      <%= get_flash(@conn, :error) %></div><% end %>
+
+        <%= Map.get(assigns, :inner_layout) || render @view_module, @view_template, assigns %>
+
+      </main>
+
+
+
+
+
+   </div>
+
+
+
+
+
+
+  </body>
+</html>

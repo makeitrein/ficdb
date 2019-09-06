@@ -1,0 +1,1 @@
+<%= if (assigns[:item_path]) do %><span class="uk-text-muted uk-text-xs"> &middot; <%= link "Edit", to: @item_path.(@conn, :edit, @item), class: "inline no-underline", "up-dash": "main"  %> <% end %>

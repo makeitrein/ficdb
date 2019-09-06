@@ -1,0 +1,17 @@
+
+<div class="flex w-full flex-wrap">
+<%= for bookshelf <- @current_user_bookshelves do %>
+    
+<a id="<% bookshelf.id %>" class="bg-black hover:bg-indigo-darkest border border-dashed border-albino <%= @item.current_user_bookshelf_names ==bookshelf.name && "active-bookshelf" %> rounded-lg p-3 flex-1 mx-2 capitalize cursor-pointer text-sm no-underline" ujs-remote ujs-method="post" href="/add_to_bookshelf/<%= @item.id %>/<%= bookshelf.id %>">
+<span><%= Phoenix.Naming.humanize bookshelf.name %></span>
+<span class="block text-xs text-grey mt-1">
+<%= bookshelf.fanfic_count %> Works <span class="text-green shield">
+<i class="jam jam-shield-check text-xl float-right -mt-4 inline-block align-middle pb-px mb-px"></i>
+</span>
+</span>
+
+</a>
+
+<% end %>
+</div>
+

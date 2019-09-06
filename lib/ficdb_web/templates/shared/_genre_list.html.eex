@@ -1,0 +1,9 @@
+<%= for genre <- @genres do %>
+
+    <%= link to: fanfic_path(@conn, :index, Ficdb.EnumHelpers.set_nested_param(@conn.params, ["search", "genres"], [genre.id])), class: "uk-label uk-label-primary tag", "up-dash": "main" do %>
+        <span class="uk-result-thumbnail uk-cover-container">
+            <img uk-cover src="<%= Ficdb.Image.url({genre.image, genre}, :thumb) %>"/>
+        </span><span class="uk-name meta"><%= genre.name %></span>
+    <% end %>
+<% end %>
+

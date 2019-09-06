@@ -1,0 +1,48 @@
+.colorgradient-card {
+  padding: 1rem !important;
+  display: block;
+  will-change: transform;
+  border: none !important;
+  text-align: left;
+  text-transform: uppercase;
+  transition: all 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.blocks > article:nth-child(2) > .colorgradient-card {
+  background-image: linear-gradient(153deg, #3BE2BC 0%, #1B96F1 95%);
+
+  box-shadow: 0 3px 15px 0 rgba(59, 203, 137, 0.4)
+}
+
+.blocks > article:nth-child(7) > .colorgradient-card {
+  background-image: linear-gradient(153deg, #EF32FB 0%, #25C7A2 95%);
+
+  box-shadow: 0 3px 15px 0 rgba(59, 203, 137, 0.4)
+}
+
+.blocks > article:nth-child(3) > .colorgradient-card {
+  background-image: linear-gradient(153deg, #EF33F2 0%, #3544DC 95%);
+  box-shadow: 0 3px 15px 0 rgba(92, 64, 224, 0.5)
+}
+
+
+.blocks > article:nth-child(4) > .colorgradient-card {
+  background-image: linear-gradient(153deg, #E64C4C 0%, #FB8332 95%);
+  box-shadow: 0 3px 15px 0 rgba(227, 46, 46, 0.4)
+}
+
+.blocks > article:nth-child(5 ) > .colorgradient-card {
+  background-image: linear-gradient(153deg, #FB8332 0%, #F8C332 95%);
+  box-shadow: 0 3px 15px 0 rgba(250, 151, 50, 0.4)
+}
+
+.blocks > article:nth-child(6) > .colorgradient-card {
+  background-image: linear-gradient(153deg, #F5515F 0%, #9F046C 95%);
+  box-shadow: 0 3px 15px 0 rgba(180, 23, 105, 0.35)
+}
+
+.blocks > article:nth-child(5) > .colorgradient-card {
+  background-image: linear-gradient(153deg, #8E2EF7 0%, #61DEC7 95%);
+  box-shadow: 0 3px 15px 0 rgba(111, 167, 214, 0.4)
+}
+

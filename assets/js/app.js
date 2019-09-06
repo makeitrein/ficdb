@@ -1,0 +1,21 @@
+import "phoenix_html"
+import "star-rating-svg/dist/jquery.star-rating-svg.js"
+import "phoenix_ujs";
+import "unpoly"
+import "readmore-js"
+
+import "./chart"
+import "./approve"
+import "./star-rating"
+import "./selectize"
+import "./pagination"
+import "./tab-radio"
+import "./crawl-fandom"
+import "./crawl-fanfic"
+import "./read-more"
+import "./toggle"
+import "./tooltip"
+import "./avatar-preview"
+import "./modal"
+import "./vote"
+

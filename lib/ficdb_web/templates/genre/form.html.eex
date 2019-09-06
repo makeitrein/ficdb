@@ -1,0 +1,46 @@
+<%= form_for @changeset, @action, [multipart: true], fn f -> %>
+
+
+<%= render FicdbWeb.SharedView, "_form_error_banner.html", changeset: @changeset %>
+
+  <div class="uk-margin">
+    <%= label f, :name, class: "block" %>
+    <%= text_input f, :name, class: "w-1/3" %>
+    <%= error_tag f, :name %>
+  </div>
+
+  <div class="uk-margin">
+    <%= label f, :description, class: "block" %>
+    <%= textarea f, :description, class: "w-1/3", rows: "6" %>
+    <%= error_tag f, :description %>
+  </div>
+
+
+<div class="uk-grid uk-child-width-1-2">
+  <div class="">
+    <%= label f, :genre_type, class: "block" %>
+    <%= select f, :genre_type, Ficdb.EnumHelpers.enum_keys(Ficdb.GenreEnum), class: "", prompt: "Choose genre type" %>
+    <%= error_tag f, :genre_type %>
+  </div>
+
+  <div class="">
+    <%= label f, :fandom_id, class: "block" %>
+    <%= select f, :fandom_id, @fandom_dropdown_options, class: " ", selected: @changeset.data.fandom_id, prompt: "Choose associated fandom" %>
+    <%= error_tag f, :fandom_id %>
+  </div>
+  </div>
+
+  <div class="uk-margin">
+      <%= label f, :image, class: "block" %>
+      <div><%= file_input f, :image %></div>
+      <%= error_tag f, :image %>
+    </div>
+
+
+<%= render FicdbWeb.SharedView, "_avatar.html", image: @changeset.data.image, model: @changeset %>
+
+  <div class="uk-margin">
+    <%= submit "Submit", class: "button mt-4" %>
+  </div>
+<% end %>
+

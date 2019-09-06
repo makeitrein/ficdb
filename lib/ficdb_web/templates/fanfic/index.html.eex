@@ -1,0 +1,10 @@
+
+<%= Ficdb.Authorization.render(Ficdb.Authorization.authenticate(@conn), render(FicdbWeb.SharedView, "_top_right_action.html", helper: "New", text: "New Fanfic", path: fanfic_path(@conn, :new))) %>
+
+<div id="index">
+
+<%= render FicdbWeb.FanficView, "filter.html", assigns %>
+
+<%= render FicdbWeb.SharedView, "_result_list.html", assigns %>
+
+</div>

@@ -1,0 +1,24 @@
+.tippy-tooltip.honeybee-theme .tippy-backdrop {
+}
+
+/* If `animateFill: false` */
+.tippy-tooltip.honeybee-theme {
+  //border: 1px solid rgba(0,0,0,.7);
+  max-width: 550px !important;
+  max-height: 550px !important;
+  //overflow: auto;
+  text-align: left;
+
+  .tippy-content {
+    max-width: 550px !important;
+    padding: .5rem .5rem 0 .5rem;
+  }
+
+  form {
+    width: 400px !important;
+  }
+
+  blockquote {
+    display: none;
+  }
+}

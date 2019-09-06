@@ -1,0 +1,11 @@
+<%%= render FicdbWeb.SharedView, "_top_right_action.html", text: "Edit", path: <%= schema.route_helper %>_path(@conn, :edit, @<%= schema.singular %>.id) %>
+
+<div class="uk-description-list uk-description-list-divider">
+<%= for {k, _} <- schema.attrs, Atom.to_string(k) !== "image" do %>
+    <dt><%= Phoenix.Naming.humanize(Atom.to_string(k)) %>:</dt>
+    <dd><%%= @<%= schema.singular %>.<%= k %> %></dd>
+<% end %>
+<dt>Image</dt>
+<dd class="uk-margin-small-top"><%%= render FicdbWeb.SharedView, "_avatar.html", image: @<%= schema.singular %>.image, model: @<%= schema.singular %> %></dd>
+</div>
+

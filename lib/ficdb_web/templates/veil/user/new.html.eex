@@ -1,0 +1,19 @@
+<div class="flex mt-4 items-center items-stretch">
+<div class="">
+<div class="card inline-block mr-4 p-6">
+
+<h4 class="mb-2 border-b border-albino pb-2">Sign Up</h4>
+
+<%= render "form.html", changeset: @changeset, action: user_path(@conn, :signup), signup: true, submit_text: "Sign Up" %>
+</div>
+</div>
+<div>
+</div>
+<div class="card ">
+<h4 class="mb-2 border-b  border-albino pb-2">Login</h4>
+
+<%= render "form.html", changeset: @changeset, action: user_path(@conn, :login), login: true, submit_text: "Login" %>
+</div>
+</div>
+
+         Be sure to check our <%= link "FAQ page", to: page_path(@conn, :faq), class: "text-blue", "up-dash": "main" %> before you start reviewing!

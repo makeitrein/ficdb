@@ -1,0 +1,139 @@
+<%= form_for @changeset, @action, [multipart: true], fn f -> %>
+
+
+<%= render FicdbWeb.SharedView, "_form_error_banner.html", changeset: @changeset %>
+
+
+<div class=" px-6 content-block pb-4 pt-2 ">
+<div class="flex flex-wrap items-top">
+
+    <%= render "_scrape_input.html", conn: @conn, f: f, host: "sb", form_name: :sb_id, host_name: "Spacebattles" %>
+    <%= render "_scrape_input.html", conn: @conn, f: f, host: "sv", form_name: :sv_id, host_name: "Sufficient Velocity" %>
+    <%= render "_scrape_input.html", conn: @conn, f: f, host: "ff", form_name: :ff_id, host_name: "Fanfiction.net" %>
+    <%= render "_scrape_input.html", conn: @conn, f: f, host: "fp", form_name: :fp_id, host_name: "Fictionpress" %>
+    <%= render "_scrape_input.html", conn: @conn, f: f, host: "ao3", form_name: :ao3_id, host_name: "AO3" %>
+    <div class="flex-1">
+    <div class="-mt-2">
+        <label class="block flex items-center"><span class="w-6 inline-block mr-1"><img src="<%= static_path(@conn, "/images/link.png")%>"/> </span> Custom Website</label> <%=text_input f, :url, placeholder: "https://example.com" , class: "w-full" %>
+                <%= error_tag f, :url %>
+    </div>
+    </div>
+</div>
+ <ul class="text-sm pl-1 mt-6">
+    <li>Please <a class="text-red" up-dash="main" href="/faq">READ THE FAQ</a> before submitting!</li>
+    <li>Scraping relies on a 6 to 10 digit fanfic ID to work. For example, <a class="text-blue">https://forums.spacebattles.com/threads/false-prophets-battletech-cyoa.<b>637198</b>/page-3</a> -> <b>637198</b> would be the fanfic ID</li>
+    <li>Threadmarks are required for SB/SV.</li>
+    <li>Scraping will attempt to fill out description, chapter dates, word counts, name, and author name.The bottom section (genres/fandoms/status/etc...) is your responsibility.</li>
+    <li>Ping the mods on <a target="_blank" href="https://discord.gg/uRrEHfV" class="text-purple-light"><i class="jam jam-activity text-xl inline-block align-middle inset-b-2px relative arrow"></i>Discord</a> if the scraper fails - improvements are occuring daily!</li>
+</ul>
+</div>
+
+
+
+
+<div class="px-6 content-block pb-6 pt-2 my-4">
+
+
+    <%= label f, :description, class: "block" %>
+    <%= textarea f, :description, rows: "4", class: "w-full" %>
+    <%= error_tag f, :description %>
+</div>
+
+
+<div class="px-6 content-block pb-6 pt-2 my-4">
+    <div class="flex flex-wrap items-center align-stretch">
+
+
+        <div class="flex-1">
+
+            <%= label f, :name, class: "block" %>
+            <%= text_input f, :name, class: "w-2/3" %>
+            <%= error_tag f, :name %>
+            <%= label f, :author_name, class: "block" %>
+            <%= text_input f, :author_name, class: "w-2/3" %>
+            <%= error_tag f, :author_name %>
+        </div>
+        <div class="flex-1">
+
+            <%= label f, :word_count, class: "block" %>
+            <%= number_input f, :word_count, class: "w-2/3" %>
+            <%= error_tag f, :word_count %>
+            <%= label f, :chapter_count, class: "block" %>
+            <%= number_input f, :chapter_count, class: "w-2/3" %>
+            <%= error_tag f, :chapter_count %>
+        </div>
+
+        <div class="flex-1">
+
+            <%= label f, :first_chapter_at, class: "block" %>
+            <%= datetime_select f, :first_chapter_at, year: [options: 1990..2019], class: " no-js" %>
+            <%= error_tag f, :first_chapter_at %>
+            <%= label f, :last_chapter_at, class: "block" %>
+            <%= datetime_select f, :last_chapter_at, year: [options: 1990..2019], class: " no-js" %>
+            <%= error_tag f, :last_chapter_at %>
+        </div>
+    </div>
+</div>
+
+<div class="px-6 content-block pb-6 pt-2 my-4">
+    <div class="flex flex-wrap items-top align-stretch">
+        <div class="flex-1">
+
+            <%= label f, :genres, class: "block" %>
+            <%= multiple_select f, :genres, @genre_dropdown_options, class: "w-2/3", selected: @changeset.data.genres |> Ficdb.SchemaHelpers.pluck(:id) %>
+            <%= error_tag f, :genres %>
+            <ul class="text-xs pl-1">
+            <li>Genres with "!" marks apply to the main character</li>
+            <li>Please select 1 - 6 genres</li>
+            <li>Be sure to tag M/F, M/M, F/F, or Multi/Other if applicable</li>
+            </ul>
+            <%= label f, :fandoms, class: "block" %>
+            <%= multiple_select f, :fandoms, @fandom_dropdown_options, class: "w-2/3", selected: assigns[:fandom_ids] || @changeset.data.fandoms |> Ficdb.SchemaHelpers.pluck(:id) %>
+            <%= error_tag f, :fandoms %>
+            <ul class="text-xs pl-1">
+            <li>Select "Unlisted Fandom" if needed</li>
+            <li>Ping the mods on <a target="_blank" href="https://discord.gg/uRrEHfV" class="text-purple-light"><i class="jam jam-activity text-xl inline-block align-middle inset-b-2px relative arrow"></i>Discord</a> to add a new fandom</li>
+            </ul>
+        </div>
+
+        <div class="flex-1">
+            <%= label f, :status, class: "block" %>
+            <%= select f, :status, (Ficdb.EnumHelpers.enum_keys(Ficdb.FanficStatusEnum)), class: "selectize w-2/3", prompt: "" %>
+            <%= error_tag f, :status %>
+            <%= label f, :maturity, class: "block" %>
+            <%= select f, :maturity, (Ficdb.EnumHelpers.enum_keys(Ficdb.MaturityEnum)), class: "selectize w-2/3", prompt: "" %>
+            <%= error_tag f, :maturity %>
+            <ul class="text-xs pl-1">
+            <li>Select <span class="text-red">"nsfw"</span> if sexual content is present</li>
+            </ul>
+
+        </div>
+        <div class="flex-1">
+
+            <%= label f, :main_character_id, class: "block" %>
+            <%= select f, :main_character_id, @character_dropdown_options, class: "selectize w-2/3", selected: @changeset.data.main_character_id, prompt: "" %>
+            <%= error_tag f, :main_character_id %>
+
+            <ul class="text-xs pl-1">
+            <li>Select "OC" for Original Characters</li>
+            <li>Select "SI" for Self-Insert</li>
+            <li>Select "Other" for anything else</li>
+            </ul>
+
+            <%= label f, :primary_relationship, class: "block" %>
+            <%= multiple_select f, :primary_relationship, @character_dropdown_options, class: "w-2/3", selected: @changeset.data.primary_relationship |> Ficdb.SchemaHelpers.pluck(:id) %>
+            <%= error_tag f, :primary_relationship %>
+
+
+        </div>
+    </div>
+
+
+</div>
+
+
+<div class="text-center">
+    <%= submit "#{Map.get(@changeset, :id) && "Update" || "Submit"} Fanfic", class: "button" %>
+    <div class="mt-4">Heads up! Your submission will be reviewed for accuracy <br/> by a moderator before being added to Ficdb! Also... please be the first one to review your submission, so it gets some traction!</div>
+</div>
+<% end %>

@@ -1,0 +1,14 @@
+<%= Ficdb.Authorization.render(Ficdb.Authorization.verify_role(@conn, [:admin, :mod]), render(FicdbWeb.SharedView, "_top_right_action.html", text: "New Genre", path: genre_path(@conn, :new))) %>
+
+
+<%= for {key, list} <- @genres_by_type do %>
+
+<h4><%= key %></h4>
+<div class="bg-black-light rounded-lg px-6 pt-4 pb-6 mt-4">
+
+<%= render FicdbWeb.SharedView, "_tag_list.html", conn: @conn, list: list, param: "genres", fanfic_count: true, item_path: &genre_path/3 %>
+</div>
+<br/>
+<br/>
+<br/>
+<% end %>

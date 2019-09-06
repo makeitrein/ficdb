@@ -1,0 +1,5 @@
+<h2>New Character</h2>
+
+<%= render "form.html", Map.put(assigns, :action, character_path(@conn, :create)) %>
+
+<span><%= link "Back", to: character_path(@conn, :index) %></span>

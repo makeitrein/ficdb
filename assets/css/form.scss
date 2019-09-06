@@ -1,0 +1,16 @@
+.review-form {
+  display: none;
+}
+
+.review-form.visible {
+  display: block;
+}
+
+.uk-multiselect {
+  height: 200px;
+}
+
+.open-review-form {
+  display: block !important;
+  color: inherit !important;
+}

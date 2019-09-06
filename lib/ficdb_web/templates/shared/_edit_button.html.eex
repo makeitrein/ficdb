@@ -1,0 +1,5 @@
+<span class="py-1 px-3 border-grey border rounded-lg text-grey">
+    <a href="<%= fanfic_path(@conn, :edit, @item.id) %>" class="">
+        Edit
+    </a>
+</span>

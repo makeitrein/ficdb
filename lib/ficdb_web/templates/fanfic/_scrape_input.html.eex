@@ -1,0 +1,7 @@
+<div class="flex-1">
+    <label class="block flex items-center"><span class="inline-block mr-1"><img class="h-4" src="<%= static_path(@conn, "/images/host_icons/#{@host}.png")%>"/> </span> <%=@host_name %></label>
+    <a data-tippy-content="<span>https://www.fictionpress.com/s/<u><b>2961893</b></u>/1/Mother-of-Learning <br/><br/> <u><b>2961893</b></u> = Thread ID</span>" uk-icon="icon: question; ratio: .9;"></a></label>
+    <%= number_input @f, @form_name, placeholder: "123456", class: "mr-2" %>
+    <a class="label-text mt-2 button" data-host="<%= @host %>" data-crawl-fanfic="true" >Scrape</a>
+    <%= error_tag @f, @form_name %>
+</div>

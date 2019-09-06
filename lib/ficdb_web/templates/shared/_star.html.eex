@@ -1,0 +1,5 @@
+<span>
+<%= for star <- [0..@star_count] do %>
+    <img width="20" src="<%= static_path(@conn, "/images/star.svg")%>"/>
+<% end %>
+</span>

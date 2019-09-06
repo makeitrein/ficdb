@@ -1,0 +1,2 @@
+<%%= render FicdbWeb.SharedView, "_top_right_action.html", text: "New <%= schema.human_singular %>", path: <%= schema.route_helper %>_path(@conn, :new) %>
+<%%= render FicdbWeb.SharedView, "_tile_list.html", conn: @conn, list: @<%= schema.plural %>, item_path: &<%= schema.route_helper %>_path/3 %>

@@ -1,0 +1,17 @@
+
+<div class="pt-6" id="up-results">
+
+         <%= render FicdbWeb.SharedView, "_pagination.html", assigns %>
+
+<div class="pt-4">
+
+    <%= for {item, idx} <- Enum.with_index(@fanfics) do %>
+           <%= render "_result_item.html", Map.merge(assigns, %{item: item, idx: idx}) %>
+    <% end %>
+
+     <%= render FicdbWeb.SharedView, "_pagination.html", assigns %>
+
+</div>
+</div>
+
+

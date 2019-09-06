@@ -1,0 +1,4 @@
+<%= if (assigns[:item_path]) do %><span class="uk-text-muted uk-text-xs text-red"> &middot;
+                    <a ujs-method="delete" ujs-remote ujs-confirm="Are you sure you want to delete this? Make sure to remove all associated fanfics first!" href="<%=  @item_path.(@conn, :delete, @item) %>">Delete</a>
+</span>
+<% end %>
