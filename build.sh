@@ -4,7 +4,9 @@ mix deps.get --only prod
 MIX_ENV=prod mix compile
 
 # Compile assets
+cd assets
 brunch build --production
+cd ..
 MIX_ENV=prod mix phx.digest
 
 # Remove the existing release directory and build the release
