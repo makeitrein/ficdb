@@ -1,0 +1,39 @@
+{
+  "repository": {},
+  "license": "MIT",
+  "scripts": {
+    "deploy": "brunch build --production",
+    "watch": "brunch watch --stdin",
+    "tailwind:css": "tailwind build ./css/tailwind.src.css -c  tailwind.js -o ./css/tailwind.css"
+  },
+  "dependencies": {
+    "chart.js": "^2.7.3",
+    "glhd-tailwindcss-transitions": "^0.3.0",
+    "jquery": "^3.3.1",
+    "jquery.mhead": "^1.0.1",
+    "jquery.mmenu": "^7.2.1",
+    "lodash": "^4.17.10",
+    "noty": "^3.2.0-beta",
+    "phoenix": "^1.3.4",
+    "phoenix_html": "^2.12.0",
+    "phoenix_ujs": "^0.4.1",
+    "query-string": "^6.2.0",
+    "readmore-js": "^2.2.1",
+    "selectize": "^0.12.6",
+    "star-rating-svg": "^3.5.0",
+    "tailwindcss-layout": "^1.0.1",
+    "tailwindcss-transforms": "^1.0.2",
+    "tippy.js": "^3.0.6",
+    "unpoly": "^0.57.0"
+  },
+  "devDependencies": {
+    "babel-brunch": "6.1.1",
+    "brunch": "2.10.9",
+    "clean-css-brunch": "2.10.0",
+    "postcss-brunch": "^2.10.1",
+    "sass-brunch": "^2.10.4",
+    "tailwindcss": "^0.6.6",
+    "tailwindcss-inset": "^1.0.0",
+    "uglify-js-brunch": "https://github.com/brunch/uglify-js-brunch.git#update-uglifyjs"
+  }
+}

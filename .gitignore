@@ -6,7 +6,7 @@
 .idea/
 .env
 /uploads/*
-*.json
+ficdb-218100-e8884c30e79f.json
 
 # Generated on crash by the VM
 erl_crash.dump
