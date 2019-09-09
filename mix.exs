@@ -42,10 +42,11 @@ defmodule Ficdb.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       ## CUSTOM DEPS ##
-      {:veil, "~> 0.1"},
+      {:veil, "~> 0.2"},
       {:breadcrumble, "~> 1.0.0"},
       {:timex, "~> 3.1"},
       {:quantum, "~> 2.3"},
+        {:plug_cowboy, "~> 1.0"},
       {:clipboard, ">= 0.0.0", only: [:dev]},
 
                                     {:arc, "~> 0.10.0"},
