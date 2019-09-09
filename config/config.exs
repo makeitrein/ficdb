@@ -26,7 +26,7 @@ config :ficdb,
 config :ficdb, Ficdb.Scheduler,
        jobs: [
          # Every six hours
-         {"0 */6 * * *",      {Ficdb.CronCrawler, :check_for_updates, []}},
+         {"0 */36 * * *",      {Ficdb.CronCrawler, :check_for_updates, []}},
        ]
 
 

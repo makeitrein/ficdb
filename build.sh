@@ -5,9 +5,10 @@ MIX_ENV=prod mix compile
 
 # Compile assets
 mkdir -p priv/static
+mkdir -p priv/static/{css,images,js}
 cd assets
 npm install
-./node_modules/brunch/bin/brunch build --production
+BRUNCH_DEBUG=1 ./node_modules/brunch/bin/brunch build --production
 cd ..
 MIX_ENV=prod mix phx.digest
 
