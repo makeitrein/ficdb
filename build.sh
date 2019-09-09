@@ -4,8 +4,10 @@ mix deps.get --only prod
 MIX_ENV=prod mix compile
 
 # Compile assets
+mkdir -p priv/static
 cd assets
-brunch build --production
+npm install
+./node_modules/brunch/bin/brunch build --production
 cd ..
 MIX_ENV=prod mix phx.digest
 
