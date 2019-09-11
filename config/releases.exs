@@ -38,7 +38,7 @@ config :ficdb, Ficdb.Repo,
 config :veil,
        FicdbWeb.Veil.Mailer,
        adapter: Swoosh.Adapters.Sendgrid,
-       api_key: "${SEND_GRID_API_KEY}"
+       api_key: System.get_env("SEND_GRID_API_KEY")
 
 config :arc,
        storage: Arc.Storage.GCS,
