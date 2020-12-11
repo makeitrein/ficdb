@@ -1092,7 +1092,7 @@ commander@^2.0.0, commander@^2.11.0:
 
 commander@~2.14.1:
   version "2.14.1"
-  resolved "http://registry.npmjs.org/commander/-/commander-2.14.1.tgz#2235123e37af8ca3c65df45b026dbd357b01b9aa"
+  resolved "https://registry.npmjs.org/commander/-/commander-2.14.1.tgz#2235123e37af8ca3c65df45b026dbd357b01b9aa"
 
 commander@~2.9:
   version "2.9.0"
@@ -2110,8 +2110,8 @@ inherits@2.0.1:
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.1.tgz#b17d08d326b4423e568eff719f91b0b1cbdf69f1"
 
 ini@^1.3.4, ini@~1.3.0:
-  version "1.3.5"
-  resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.5.tgz#eee25f56db1c9ec6085e0c22778083f596abf927"
+  version "1.3.7"
+  resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.7.tgz#a09363e1911972ea16d7a8851005d84cf09a9a84"
 
 init-skeleton@~1.0:
   version "1.0.1"
@@ -2470,7 +2470,7 @@ loggy@^1, loggy@^1.0.3, loggy@~1.0.1, loggy@~1.0.2:
 
 loggy@~0.3.0:
   version "0.3.5"
-  resolved "http://registry.npmjs.org/loggy/-/loggy-0.3.5.tgz#33f12801b1f6063966ea79d9b6a25db8fcbc4107"
+  resolved "https://registry.npmjs.org/loggy/-/loggy-0.3.5.tgz#33f12801b1f6063966ea79d9b6a25db8fcbc4107"
   dependencies:
     ansicolors "~0.3.2"
     growl "~1.8.1"
