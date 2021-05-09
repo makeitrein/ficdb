@@ -1092,7 +1092,7 @@ commander@^2.0.0, commander@^2.11.0:
 
 commander@~2.14.1:
   version "2.14.1"
-  resolved "http://registry.npmjs.org/commander/-/commander-2.14.1.tgz#2235123e37af8ca3c65df45b026dbd357b01b9aa"
+  resolved "https://registry.npmjs.org/commander/-/commander-2.14.1.tgz#2235123e37af8ca3c65df45b026dbd357b01b9aa"
 
 commander@~2.9:
   version "2.9.0"
@@ -2457,9 +2457,9 @@ lodash.clonedeep@^4.3.2:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
 
-lodash@^4.0.0, lodash@^4.17.10, lodash@^4.17.4, lodash@^4.17.5, lodash@~4.17.10:
-  version "4.17.10"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
+lodash@^4.0.0, lodash@^4.17.10, lodash@^4.17.21, lodash@^4.17.4, lodash@^4.17.5, lodash@~4.17.10:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
 
 loggy@^1, loggy@^1.0.3, loggy@~1.0.1, loggy@~1.0.2:
   version "1.0.3"
@@ -2470,7 +2470,7 @@ loggy@^1, loggy@^1.0.3, loggy@~1.0.1, loggy@~1.0.2:
 
 loggy@~0.3.0:
   version "0.3.5"
-  resolved "http://registry.npmjs.org/loggy/-/loggy-0.3.5.tgz#33f12801b1f6063966ea79d9b6a25db8fcbc4107"
+  resolved "https://registry.npmjs.org/loggy/-/loggy-0.3.5.tgz#33f12801b1f6063966ea79d9b6a25db8fcbc4107"
   dependencies:
     ansicolors "~0.3.2"
     growl "~1.8.1"
