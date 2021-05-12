@@ -7,7 +7,7 @@
     "tailwind:css": "tailwind build ./css/tailwind.src.css -c  tailwind.js -o ./css/tailwind.css"
   },
   "dependencies": {
-    "chart.js": "^2.7.3",
+    "chart.js": "^2.9.4",
     "glhd-tailwindcss-transitions": "^0.3.0",
     "jquery": "^3.3.1",
     "jquery.mhead": "^1.0.1",
